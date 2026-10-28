@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4f4f6">
+<title>Ident Generator</title>
+<!-- Site icon: black "I" on white. Vector tab icon, a 32 px PNG for browsers without SVG icons, a 180 px PNG for iOS home screens. -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEwNCIgZmlsbD0iI2ZmZmZmZiIvPjxwYXRoIGZpbGw9IiMwMDAwMDAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI1NiAyNTYpIHNjYWxlKDEuMikgdHJhbnNsYXRlKC0yNTYgLTI1NikiIGQ9Ik0xNTYgOTZIMzU2VjE0NEgzMDRWMzY4SDM1NlY0MTZIMTU2VjM2OEgyMDhWMTQ0SDE1NloiLz48L3N2Zz4=">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABSElEQVR4nOyXT0rDQBjFvwlVBBe9RhdVF0HoMgfIKdxqQXDRpclSXIl/8B65QLZFEwp6htxAKHER39MJjLXNSGmSzTx4mZnMn+83M5v5PDFUVdUYfoYzuKx2p1KvybXHZkylA7M8h2/hA2lXS/hKKfXEhqd/zuD7DoKLjvGITV+yoVA5RvkC70u3+oBPeAJnTcGjKBIc11bm3AYdwtMBPhPpTxMCjKQ/jQgwbBoRBMGvdpIkkuf52rG+70sYhhvnrtFwYBvBRcyFiqJoBLDc+x9ZAdqWA3AADsABOAAH4ACsAGmafrtWlmUbx7LPfA+sviW2BojjWP4jAqwC2gD4Kp5Lf5oTYCH9acHE5AiVV+k+MSlh30MC8YbKtXSvGWK/17nhjfwkp0tpX4wxhe/YUGaPTp0v4FOYV7Mnu9EnzJNmDvrAndcdXwAAAP//4slRwAAAAAZJREFUAwBxPrb1NFxroAAAAABJRU5ErkJggg==">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACZUlEQVR4nOzbsVEiUBRA0e+MoQEhBZijFai9GNiFbRjYi1qBkFMAIQE5SwF7IwL+Lud08Gbu/Je8f3s8Hgf8ze2AIA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDJA6SOEjiIImDNFccu93u4+NjXKu3t7flcjmmcTPV14T1ev34+Diu1e/v78PDw5iGtUISB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB0kcJHGQxEESB2muOO7u7p6ensYZ9vv9ZrMZl7BarRaLxTjDafwxk7luSM/3/f398vIyLuHr6+v5+Xn8R6wVkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQO0s3xeBzT2G63r6+v4wz7/X6z2YxLWK1Wi8VinOHz8/P+/n5MY66X43A4/Pz8jH/T+VGexh8zsVZI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iCJgyQOkjhI4iDNFcdyuXx/fx/X6jT+mMlcB8ZMxVohiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIgiYMkDpI4SOIg/QEAAP//vhcodAAAAAZJREFUAwAjFkM2CKA9IwAAAABJRU5ErkJggg==">
+<style>
+  :root {
+    --font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --bg: #f4f4f6;
+    --surface: #ffffff;
+    --surface-2: #f4f4f7;
+    --surface-3: #e3e3e9;
+    --text: #17171b;
+    --muted: #74747f;
+    --line: rgba(20, 20, 30, .10);
+    --line-strong: rgba(20, 20, 30, .22);
+    --accent: #5a6bf0;
+    --shadow: 0 1px 2px rgba(20, 20, 40, .05), 0 12px 36px rgba(20, 20, 40, .09);
+    --radius: 20px;
+    --ease: cubic-bezier(.2, .8, .2, 1);
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.4;
+    -webkit-tap-highlight-color: transparent;
+  }
+  button { font-family: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ---------- Header ---------- */
+  .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding: 30px 16px 14px;
+  }
+  .top h1 {
+    margin: 0;
+    font-size: clamp(1.45rem, 3vw, 1.9rem);
+    font-weight: 650;
+    letter-spacing: -.02em;
+  }
+
+  /* ---------- Shared controls ---------- */
+  .icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; flex: none;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    transition: all .3s ease;
+  }
+  .icon-btn:hover:not(:disabled) { background: var(--surface-2); border-color: var(--line-strong); }
+  .icon-btn:active:not(:disabled) { transform: scale(.94); }
+  .icon-btn:disabled { opacity: .3; cursor: default; }
+  .icon-btn.sm { width: 28px; height: 28px; font-size: 10px; }
+  .icon-btn.danger:hover:not(:disabled) { color: #d6455d; border-color: rgba(214, 69, 93, .45); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font: 600 13px var(--font);
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all .3s ease;
+  }
+  .btn:hover { background: var(--surface-2); border-color: var(--line-strong); }
+  .btn:active { transform: scale(.98); }
+  .btn.small { padding: 8px 12px; font-size: 12px; border-radius: 10px; }
+  .btn-primary {
+    width: 100%;
+    margin-top: 16px;
+    padding: 14px;
+    font-size: 14px;
+    background: var(--text);
+    color: var(--bg);
+    border-color: transparent;
+  }
+  .btn-primary:hover { background: var(--text); opacity: .86; }
+  .btn-secondary { width: 100%; margin-top: 10px; padding: 13px; font-size: 14px; }
+
+  select, input[type="text"] {
+    width: 100%;
+    font: 500 14px var(--font);
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 9px 11px;
+    transition: border-color .3s ease, box-shadow .3s ease;
+  }
+  select:focus, input[type="text"]:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
+  select {
+    appearance: none; -webkit-appearance: none;
+    padding-right: 32px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%239b9ba6' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 11px center;
+    cursor: pointer;
+  }
+  @media (pointer: coarse) { select, input[type="text"] { font-size: 16px; } }
+
+  input[type="color"] {
+    width: 46px; height: 38px; flex: none; padding: 3px;
+    border: 1px solid var(--line); border-radius: 10px;
+    background: var(--surface); cursor: pointer;
+  }
+  input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+  input[type="color"]::-webkit-color-swatch { border: 0; border-radius: 7px; }
+  input[type="color"]::-moz-color-swatch { border: 0; border-radius: 7px; }
+  input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px; margin: 0; }
+
+  input[type="range"] {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 24px; margin: 0;
+    background: transparent; cursor: pointer;
+    --track: var(--surface-3);
+  }
+  input[type="range"]::-webkit-slider-runnable-track { height: 6px; border-radius: 99px; background: var(--track); box-shadow: inset 0 0 0 1px var(--line); }
+  input[type="range"]::-moz-range-track { height: 6px; border-radius: 99px; background: var(--track); box-shadow: inset 0 0 0 1px var(--line); }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 20px; height: 20px; margin-top: -7px;
+    border-radius: 50%; background: #fff; border: 1px solid rgba(0, 0, 0, .18);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .28);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 18px; height: 18px; border-radius: 50%; background: #fff;
+    border: 1px solid rgba(0, 0, 0, .18); box-shadow: 0 1px 4px rgba(0, 0, 0, .28);
+  }
+  input[type="range"].ace { --track: linear-gradient(90deg, #d9d9d9, #000); }          /* a-spectrum: right = darker */
+  input[type="range"].ace.bright { --track: linear-gradient(90deg, #000, #d9d9d9); }   /* intensity: right = brighter */
+  input[type="range"].spectrum { --track: linear-gradient(90deg, #1565ff, #ffffff 50%, #ff40a0); }
+
+  .seg { display: inline-flex; gap: 2px; padding: 2px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 11px; }
+  .seg-btn {
+    border: 0; background: transparent; color: var(--muted);
+    font: 600 12px var(--font); padding: 7px 12px; border-radius: 9px; cursor: pointer;
+    transition: all .3s ease; white-space: nowrap;
+  }
+  .seg-btn:hover { color: var(--text); }
+  .seg-btn.is-on { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgba(0, 0, 0, .14); }
+  .seg.full { display: flex; }
+  .seg.full .seg-btn { flex: 1; }
+
+  .switch {
+    position: relative; flex: none; width: 46px; height: 28px; border: 0; padding: 0;
+    border-radius: 99px; background: var(--surface-3); cursor: pointer;
+    transition: background-color .3s ease;
+  }
+  .switch span {
+    position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%;
+    background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .3); transition: transform .3s ease;
+  }
+  .switch.is-on { background: var(--accent); }
+  .switch.is-on span { transform: translateX(18px); }
+
+  /* ---------- Stage / layout ---------- */
+  .stage {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 12px 24px 56px;
+  }
+  .preview-col { flex: 0 1 560px; min-width: 0; position: sticky; top: 24px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: background-color .3s ease, border-color .3s ease, box-shadow .3s ease;
+  }
+  .preview-card { padding: 20px; }
+  .cap {
+    margin: 0;
+    text-align: center;
+    font-size: 12px; line-height: 1.5;
+    color: var(--muted);
+    text-wrap: balance;
+  }
+  .cap b { color: var(--text); font-weight: 650; }
+  .cap-top { padding: 0 4px 12px; }
+  .cap-bottom { padding: 12px 4px 0; }
+
+  /* ---------- Canvas ---------- */
+  .canvas-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    container-type: inline-size;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .16);
+    background: #f4f4f4;
+    transition: width .35s var(--ease);
+  }
+  #canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; user-select: none; }
+
+  .hit {
+    position: absolute; z-index: 2;
+    display: flex; align-items: flex-start; justify-content: flex-start;
+    padding: 0; border: 0; border-radius: 0;
+    background: transparent; cursor: pointer;
+    transition: all .3s ease;
+  }
+  /* page-only overlays: never part of the SVG, never exported */
+  .hit:hover { background: rgba(255, 255, 255, .16); }
+  .hit.is-selected {
+    background: rgba(255, 255, 255, .06);
+    box-shadow:
+      inset 0 0 0 2px color-mix(in srgb, var(--accent) 80%, transparent),
+      inset 0 0 22px 3px color-mix(in srgb, var(--accent) 42%, transparent);
+  }
+  .hit:focus-visible { outline: 2px solid var(--accent); outline-offset: -6px; }
+
+  /* attribute selector keeps specificity above the generic input[type="text"] panel styling */
+  input.bar-input[type="text"] {
+    position: absolute; z-index: 3; left: 1%; width: 98%; height: 4.75%;
+    margin: 0; padding: 0 8px;
+    border: 0; border-radius: 0; outline: 0; box-shadow: none;
+    background: transparent;
+    color: transparent;
+    caret-color: #1c1c1e;
+    text-align: center;
+    font: 500 4cqw/1 var(--font);
+    cursor: text;
+    transition: background-color .2s ease;
+    -webkit-appearance: none; appearance: none;
+  }
+  /* the empty-bar hint is a page-only placeholder, so the SVG itself stays text-free */
+  input.bar-input[type="text"]::placeholder { color: #c4c4c9; opacity: 1; font-weight: 400; }
+  input.bar-input[type="text"]:hover { background: rgba(0, 0, 0, .04); }
+  input.bar-input[type="text"]:focus { background: #f4f4f4; color: #1c1c1e; border: 0; box-shadow: none; }
+  input.bar-input[type="text"]:focus::placeholder { color: #b4b4b8; }
+  input.bar-top[type="text"] { top: 1%; }
+  input.bar-bottom[type="text"] { top: 94.25%; }
+  @media (pointer: coarse) { input.bar-input[type="text"] { font-size: max(16px, 4cqw); } }
+  .canvas-wrap:has(#topInput:focus) #topText,
+  .canvas-wrap:has(#bottomInput:focus) #bottomText { visibility: hidden; }
+
+  /* ---------- Panel ---------- */
+  .panel-wrap {
+    flex: none; position: sticky; top: 0;
+    width: 0; padding: 0; margin: 0; opacity: 0;
+    overflow: hidden;
+    transition: width .45s var(--ease), padding .45s var(--ease), margin .45s var(--ease), opacity .3s ease;
+  }
+  .has-panel .panel-wrap { width: 448px; padding: 24px; margin: -24px -24px -24px 8px; opacity: 1; }
+  .panel {
+    width: 400px;
+    display: flex; flex-direction: column;
+    max-height: max(440px, calc(100vh - 150px));
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: background-color .3s ease, border-color .3s ease;
+  }
+  .panel-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 18px 20px 14px;
+  }
+  .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .panel-head h2 { margin: 2px 0 0; font-size: 1.12rem; font-weight: 650; letter-spacing: -.01em; }
+  .panel-head .desc { margin: 6px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+  .panel-head > div:first-child { min-width: 0; }
+  .panel-head { align-items: flex-start; }
+  .panel-body { overflow-y: auto; padding: 4px 20px 22px; display: flex; flex-direction: column; gap: 14px; overscroll-behavior: contain; }
+
+  .block { background: var(--surface-2); border: 1px solid var(--line); border-radius: 16px; padding: 14px; transition: opacity .3s ease; }
+  .dimmable { display: flex; flex-direction: column; gap: 14px; transition: opacity .3s ease; }
+  .dimmable.is-dim { opacity: .45; }
+  .seg.full .seg-btn { white-space: normal; line-height: 1.25; padding: 8px 8px; }
+  .block-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .label { font-size: 13px; font-weight: 650; }
+  .help { margin-top: 3px; font-size: 12px; color: var(--muted); }
+  .value { font-size: 13px; font-weight: 650; font-variant-numeric: tabular-nums; color: var(--muted); }
+  .block input[type="range"] { margin-top: 8px; }
+  .section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 2px 2px 0; }
+  .empty { padding: 18px 14px; text-align: center; font-size: 13px; color: var(--muted); border: 1px dashed var(--line-strong); border-radius: 16px; }
+
+  .row { background: var(--surface-2); border: 1px solid var(--line); border-radius: 16px; padding: 12px; }
+  .row-head { display: flex; align-items: center; gap: 10px; }
+  .idx {
+    display: inline-flex; align-items: center; justify-content: center; flex: none;
+    width: 22px; height: 22px; border-radius: 50%;
+    font-size: 11px; font-weight: 700; color: var(--muted);
+    background: var(--surface); border: 1px solid var(--line);
+  }
+  .thumb {
+    flex: none; width: 48px; height: 32px; border-radius: 8px; overflow: hidden;
+    border: 1px solid var(--line);
+    background-image: repeating-linear-gradient(45deg, transparent 0 5px, var(--line) 5px 6px);
+    background-color: var(--surface);
+  }
+  .thumb img { display: block; width: 100%; height: 100%; object-fit: fill; }
+  .thumb { position: relative; }
+  .thumb::after { content: ''; position: absolute; inset: 0; background: #000; opacity: var(--dim, 0); pointer-events: none; }  /* mirrors the element's dimming */
+  .txt { border-top: 1px solid var(--line); padding-top: 10px; }
+  .txt summary { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 12px; font-weight: 650; list-style: none; }
+  .txt summary::-webkit-details-marker { display: none; }
+  .txt summary::before { content: '▸'; font-size: 10px; color: var(--muted); transition: transform .2s ease; }
+  .txt[open] summary::before { transform: rotate(90deg); }
+  .txt-prev { margin-left: auto; max-width: 55%; font-weight: 500; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .txt-body { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .txt-segs { display: flex; flex-wrap: wrap; gap: 8px; }
+  .dim { display: flex; flex-direction: column; }
+  .dim-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .row-title { flex: 1; min-width: 0; font-size: 13px; font-weight: 650; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .row-ctl { display: flex; gap: 4px; flex: none; }
+  .row-body { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .line { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .line select { flex: 1 1 140px; width: auto; }
+  .weight { display: flex; align-items: center; gap: 10px; }
+  .weight input { flex: 1; }
+  .weight .mini { flex: none; width: 38px; }
+  .mini { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .pct { flex: none; width: 40px; text-align: right; font-size: 12px; font-weight: 650; font-variant-numeric: tabular-nums; color: var(--muted); }
+  .note { margin-top: 10px; padding: 8px 10px; font-size: 12px; border-radius: 10px; color: #a35a05; background: rgba(245, 158, 11, .13); }
+  .spec-scale { display: flex; justify-content: space-between; margin-top: -2px; font-size: 11px; color: var(--muted); }
+  .hex { font-variant-numeric: tabular-nums; text-transform: lowercase; }
+  .color-line { display: flex; gap: 8px; align-items: center; }
+
+  .gap { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
+  .gap::before, .gap::after { content: ""; flex: 1; height: 1px; background: var(--line-strong); opacity: .6; }
+
+  .add-menu { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 12px; font: 600 12px var(--font);
+    border: 1px solid var(--line); border-radius: 10px;
+    background: var(--surface); cursor: pointer; transition: all .3s ease;
+  }
+  .chip-btn:hover { border-color: var(--accent); }
+  .dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--line-strong); }
+  .dot.grad { background: linear-gradient(90deg, #1565ff, #fff, #ff40a0); }
+  .dot.rgb { background: conic-gradient(#f44, #fd4, #4d6, #4cf, #84f, #f4a, #f44); }
+  .dot.tex { background: repeating-linear-gradient(45deg, #888 0 3px, #ccc 3px 6px); }
+  .check { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; }
+  .field-line { display: flex; gap: 12px; align-items: center; margin-top: 10px; }
+  .field-line .grow { flex: 1; }
+
+  .toast {
+    position: fixed; left: 50%; bottom: 24px; z-index: 100;
+    max-width: min(92vw, 460px);
+    padding: 11px 16px; border-radius: 12px;
+    font-size: 13px; font-weight: 500; text-align: center;
+    background: var(--text); color: var(--bg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    opacity: 0; transform: translate(-50%, 12px); pointer-events: none;
+    transition: all .3s ease;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  /* ---------- Info helper: Sharp, Gradient and Arrow ---------- */
+  .help-btn {
+    position: relative; flex: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; padding: 0;
+    border: 1px solid var(--line-strong); border-radius: 50%;
+    background: transparent; color: var(--muted);
+    font: 700 12px/1 var(--font); cursor: pointer;
+    transition: all .3s ease;
+  }
+  .help-btn::after { content: ""; position: absolute; inset: -11px; }      /* 44 px touch target */
+  .help-btn:hover { color: var(--text); border-color: var(--text); background: var(--surface-2); }
+  .help-btn:active { transform: scale(.92); }
+  .help-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .modal {
+    position: fixed; inset: 0; z-index: 150;
+    display: flex; align-items: center; justify-content: center;
+    padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+    background: rgba(0, 0, 0, .5);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity .25s ease, visibility 0s linear .25s;
+  }
+  .modal.is-open { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity .25s ease; }
+  .modal-card {
+    position: relative; width: min(100%, 420px); max-height: 100%; overflow-y: auto;
+    padding: 24px 22px 22px;
+    background: var(--surface); color: var(--text);
+    border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+    transform: translateY(14px) scale(.97);
+    transition: transform .35s var(--ease);
+  }
+  .modal.is-open .modal-card { transform: none; }
+  .modal-x { position: absolute; top: 12px; right: 12px; }
+  .modal-card h3 { margin: 0 40px 4px 0; font-size: 1.05rem; font-weight: 650; letter-spacing: -.01em; }
+  .modal-card p { margin: 0; padding: 12px 0; font-size: 14px; line-height: 1.6; }
+  .modal-card p + p { border-top: 1px solid var(--line); }
+  .modal-card p:last-child { padding-bottom: 0; }
+  .modal-card p b { font-weight: 650; }
+
+  /* ---------- Mobile: preview on top, panel underneath ---------- */
+  @media (max-width: 899px) {
+    .stage { flex-direction: column; align-items: stretch; padding: 8px 14px 48px; }
+    .preview-col { flex: none; width: 100%; max-width: 480px; margin: 0 auto; position: static; }
+    .preview-card { padding: 14px; }
+    .panel-wrap {
+      display: grid; grid-template-rows: 0fr;
+      position: static; width: 100%; max-width: 480px; margin: 0 auto; padding: 0;
+      transition: grid-template-rows .4s var(--ease), margin .4s var(--ease), opacity .3s ease;
+    }
+    .has-panel .panel-wrap { width: 100%; grid-template-rows: 1fr; padding: 0; margin: 14px auto 0; }
+    .panel { width: 100%; min-height: 0; max-height: none; box-shadow: none; }
+    .panel-body { overflow: visible; }
+    /* keep a compact live preview pinned while editing */
+    .has-panel .preview-col { position: sticky; top: 0; z-index: 30; }
+    .has-panel .preview-card { padding: 10px; border-radius: 0 0 var(--radius) var(--radius); }
+    .has-panel .cap, .has-panel #downloadBtn, .has-panel #tutorialBtn { display: none; }
+    .has-panel .canvas-wrap { width: min(100%, max(180px, 38vh)); margin: 0 auto; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: .01ms !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>Ident</h1>
+</header>
+
+<main class="stage" id="stage">
+  <section class="preview-col" aria-label="Live preview">
+    <div class="card preview-card">
+      <p class="cap cap-top"><b>Additional Context (Optional):</b> Use this bar to clarify internal nuances, transition statuses, medical details, or custom notes (e.g., HRT Femboy, Non-Op, Pre-Op).</p>
+
+      <div class="canvas-wrap" id="wrap">
+        <svg id="canvas" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             width="400" height="400" viewBox="0 0 400 400"
+             font-family="system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+             role="img" aria-label="Ident profile card">
+          <rect width="400" height="400" fill="#f4f4f4"/>
+          <g id="bars">
+            <text id="topText" x="200" y="12.5" text-anchor="middle" dominant-baseline="central" font-size="16"></text>
+            <text id="bottomText" x="200" y="385.5" text-anchor="middle" dominant-baseline="central" font-size="16"></text>
+          </g>
+          <g id="q0"></g>
+          <g id="q1"></g>
+          <g id="q2"></g>
+          <g id="q3"></g>
+          <g id="lines" fill="none" stroke="#000000" stroke-width="4" shape-rendering="crispEdges">
+            <rect x="2" y="2" width="396" height="396"/>
+            <line x1="0" y1="25" x2="400" y2="25"/>
+            <line x1="0" y1="375" x2="400" y2="375"/>
+            <line x1="0" y1="200" x2="400" y2="200"/>
+            <line x1="200" y1="25" x2="200" y2="375"/>
+          </g>
+        </svg>
+
+        <button class="hit" type="button" data-q="0" aria-label="Edit quadrant 1: Sexual Orientation" style="left:0;top:6.25%;width:50%;height:43.75%"></button>
+        <button class="hit" type="button" data-q="1" aria-label="Edit quadrant 2: Romantic Orientation" style="left:50%;top:6.25%;width:50%;height:43.75%"></button>
+        <button class="hit" type="button" data-q="2" aria-label="Edit quadrant 3: Gender Identity" style="left:0;top:50%;width:50%;height:43.75%"></button>
+        <button class="hit" type="button" data-q="3" aria-label="Edit quadrant 4: Aesthetic and Style" style="left:50%;top:50%;width:50%;height:43.75%"></button>
+
+        <input id="topInput" class="bar-input bar-top" type="text" maxlength="60" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Additional context (optional)" aria-label="Additional context (optional)">
+        <input id="bottomInput" class="bar-input bar-bottom" type="text" maxlength="60" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Pronouns" aria-label="Pronouns">
+      </div>
+
+      <p class="cap cap-bottom"><b>Pronouns:</b> Use this bar strictly for your pronouns (e.g., he/him, she/her, they/them).</p>
+
+      <button id="downloadBtn" class="btn btn-primary" type="button">📥 Download my Ident (PNG)</button>
+      <button id="tutorialBtn" class="btn btn-secondary" type="button">📖 Download tutorial</button>
+    </div>
+  </section>
+
+  <aside class="panel-wrap" id="panelWrap" aria-label="Quadrant settings" aria-hidden="true" inert>
+    <div class="panel" id="panel"></div>
+  </aside>
+</main>
+
+<input type="file" id="fileInput" accept="image/png,image/jpeg,image/svg+xml,image/webp,image/gif,image/*" hidden>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<div id="blendHelp" class="modal" aria-hidden="true" inert>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="blendHelpTitle">
+    <button class="icon-btn sm modal-x" type="button" data-close aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <h3 id="blendHelpTitle">Sharp, Gradient &amp; Arrow</h3>
+    <p><b>Sharp Transition (Default):</b> Indicates that multiple identities or orientations coexist simultaneously in your life.</p>
+    <p><b>Gradient Transition:</b> Represents a fluid identity that shifts, rotates, or fluctuates across different periods of time (ideal for Abrosexual, Genderfluid, or Bi-flux folk).</p>
+    <p><b>Arrow Transition:</b> Shows two, three or more orientations subordinate to one. Put the umbrella orientation first and the specific orientations it covers after it; the arrow points from the umbrella into them. For example, Bisexual does not always mean both homosexual and heterosexual, so for full inclusivity follow it with the exact orientations you mean.</p>
+    <p><b>Inside a group:</b> orientations gathered under one umbrella are linked to each other with arrows too, so the group reads as one unit and stays distinct from a separate identity beside it. Example: Bi (Hetero + Cetero) together with Demi is <b>Bi → Hetero → Cetero | Demi</b>: arrow, arrow, then a Sharp edge before Demi. <b>Bi → Hetero | Cetero | Demi</b> would read as four unrelated identities.</p>
+    <p><b>Across time (e.g. Abrosexual):</b> when your orientation differs from one period of life to another, put a Gradient between the periods. Example: in one period you are Bi (Hetero + Cetero) and Demi at the same time, in another you are Homo: <b>Bi → Hetero → Cetero | Demi / Homo</b>, where “/” is the Gradient. Read the Gradients first: they split the picture into moments in time. Inside each moment, arrows group an umbrella with the orientations it covers, and Sharp edges separate what coexists.</p>
+  </div>
+</div>
+
+<script>
+(() => {
+'use strict';
+
+/* =============================================================================
+   PRESETS come from ./presets.json (same folder as this page):
+     { "sexuality": ["homo", ...], "romantic": ["hetero", ...], "gender": ["trans", "femboy.png", ...] }
+   Files live in ./sexuality/, ./romantic/ and ./gender/ and can be ANY image format (SVG, PNG, JPG, WebP,
+   GIF, AVIF, BMP ...). A bare name ("trans") is looked up by trying every supported extension; a full file
+   name ("trans.png") is used as is. When the web server shows folder listings, files dropped into a folder
+   appear on their own. Everything that is not already an SVG is traced into vector shapes on load.
+   No presets.json and no listing = zero presets (custom upload only). Nothing is hardcoded here.
+   Serve the folder over http(s); browsers block fetch() on file:// pages.
+   ============================================================================= */
+const presets = { sexuality: [], romantic: [], gender: [] };
+
+/* ---------- tiny helpers ---------- */
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const fmt = v => +(+v).toFixed(3);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const labelOf = id => id.charAt(0).toUpperCase() + id.slice(1);
+const defaultIntensity = qi => (qi === 3 ? 100 : 0);                                               // new elements: Intensity 100%, a-spectra 0%
+const intensityOf = (qi, it) => (it.intensity == null ? defaultIntensity(qi) : clamp(+it.intensity, 0, 100));
+const darkness = (qi, it) => (qi === 3 ? 100 - intensityOf(qi, it) : intensityOf(qi, it)) / 100;  // black-layer opacity 0..1
+const trunc = (s, n = 26) => (s.length > n ? s.slice(0, n - 1) + '…' : s);
+let uidN = 0;
+const uid = () => 'e' + (++uidN);
+
+/* ---------- geometry (400 x 400 canvas) ---------- */
+const GRAY = '#d9d9d9';
+const SEAM = 0.75;                       // sharp edges overlap by this many units to avoid hairline gaps
+const ARROW_ANGLE = 130;                 // interior angle at the tip of an Arrow transition, in degrees: 180 = flat, 90 = sharp chevron
+const GEOM = [
+  { x: 0,   y: 25,  w: 200, h: 175 },   // 0  sexual orientation
+  { x: 200, y: 25,  w: 200, h: 175 },   // 1  romantic orientation
+  { x: 0,   y: 200, w: 200, h: 175 },   // 2  gender identity
+  { x: 200, y: 200, w: 200, h: 175 }    // 3  aesthetic & style
+];
+const META = [
+  { key: 'sexuality', name: 'Sexual Orientation',   ace: 'Asexual spectrum',
+    desc: 'Who you are sexually attracted to. Combine flags side by side, blend them, or dim any single flag toward black to express the asexual spectrum.' },
+  { key: 'romantic',  name: 'Romantic Orientation', ace: 'Aromantic spectrum',
+    desc: 'Who you are romantically drawn to — this can be different from your sexual orientation. Works exactly like the quadrant before it.' },
+  { key: 'gender',    name: 'Gender Identity',      ace: 'Agender spectrum',
+    desc: 'How you experience and describe your own gender. Stack several flags, blend them for fluid identities, and dim any flag toward black to express the agender spectrum.' },
+  { key: 'style',     name: 'Aesthetic & Style', ace: 'Intensity',
+    desc: 'How you present and express yourself visually. Mix colors, textures and the masculine–feminine style slider, set the Intensity of each element, and write your own text on any of them.' }
+];
+
+/* ---------- state ---------- */
+const PALETTE = ['#1c1c1e', '#7a5af8', '#e5484d', '#2f9e6e', '#e8a93a', '#3b82f6'];
+/* Element schema (quadrants 1-4):  { uid, kind, weight, intensity: 0-100, ...kind fields }
+   intensity, quadrants 1-3 (a-spectrum): 0 = untouched (default), 100 = solid black.
+   intensity, quadrant 4 (Intensity):     100 = full brightness (default), 0 = solid black.
+   Only Style (quadrant 4) elements carry text:  txt: { value, color, size, weight, outline }  (see newText).
+   Quadrants 1-3, Gender included, are pure flags: nothing is ever drawn on top of them. */
+const state = {
+  top: '', bottom: '', selected: null,
+  quads: [
+    { items: [], blends: [], priv: false },
+    { items: [], blends: [], priv: false },
+    { items: [], blends: [], priv: false },
+    { items: [], blends: [], priv: false, dir: 'h' }
+  ]
+};
+const openText = new Set();   // uids whose "Text" panel is expanded (kept across panel re-renders)
+let addMenu = false;       // Q4 "+ Add Element" chooser
+let pendingUid = null;     // row waiting for a file upload
+
+/* ---------- DOM refs ---------- */
+const svg = $('#canvas'), wrap = $('#wrap'), stage = $('#stage');
+const panelWrap = $('#panelWrap'), panel = $('#panel');
+const fileInput = $('#fileInput'), toastEl = $('#toast');
+const mobileMQ = window.matchMedia ? matchMedia('(max-width: 899px)') : { matches: false };
+
+/* =============================================================================
+   Colour helpers
+   ============================================================================= */
+const BLUE = [21, 101, 255], WHITE = [255, 255, 255], PINK = [255, 64, 160];
+const rgbHex = c => '#' + c.map(x => clamp(Math.round(x), 0, 255).toString(16).padStart(2, '0')).join('');
+function spectrumColor(v) {
+  v = clamp(+v, 0, 100);
+  const [a, b, t] = v <= 50 ? [BLUE, WHITE, v / 50] : [WHITE, PINK, (v - 50) / 50];
+  return rgbHex(a.map((c, i) => c + (b[i] - c) * t));
+}
+const specLabel = v => (v < 12 ? 'Masculine' : v < 38 ? 'Masc-leaning' : v <= 62 ? 'Androgynous' : v < 88 ? 'Fem-leaning' : 'Feminine');
+function parseHex(v) {
+  v = String(v).trim();
+  if (v[0] !== '#') v = '#' + v;
+  if (/^#[0-9a-f]{3}$/i.test(v)) v = '#' + Array.from(v.slice(1)).map(c => c + c).join('');
+  return /^#[0-9a-f]{6}$/i.test(v) ? v.toLowerCase() : null;
+}
+function luminance(hex) {
+  const n = parseInt(hex.slice(1), 16);
+  return (0.2126 * (n >> 16 & 255) + 0.7152 * (n >> 8 & 255) + 0.0722 * (n & 255)) / 255;
+}
+
+/* =============================================================================
+   Asset handling — everything becomes a base64 data URI so exports are standalone
+   ============================================================================= */
+function b64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = '';
+  for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  return btoa(bin);
+}
+
+/* Normalise an SVG so it stretches to whatever box we give it, then base64 it. */
+function svgToAsset(text) {
+  let doc;
+  try { doc = new DOMParser().parseFromString(text, 'image/svg+xml'); } catch (_) { return null; }
+  const root = doc.documentElement;
+  if (!root || root.localName !== 'svg' || doc.getElementsByTagName('parsererror').length) return null;
+  doc.querySelectorAll('script').forEach(n => n.remove());
+  let vb = (root.getAttribute('viewBox') || '').trim().split(/[\s,]+/).map(Number);
+  if (vb.length !== 4 || vb.some(isNaN) || vb[2] <= 0 || vb[3] <= 0) {
+    const w = parseFloat(root.getAttribute('width')), h = parseFloat(root.getAttribute('height'));
+    vb = [0, 0, w > 0 ? w : 300, h > 0 ? h : 200];
+    root.setAttribute('viewBox', vb.join(' '));
+  }
+  root.setAttribute('width', fmt(vb[2]));
+  root.setAttribute('height', fmt(vb[3]));
+  root.setAttribute('preserveAspectRatio', 'none');
+  if (!root.getAttribute('xmlns')) root.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  const out = new XMLSerializer().serializeToString(root);
+  return { uri: 'data:image/svg+xml;base64,' + b64(out), w: vb[2], h: vb[3] };
+}
+
+/* Every upload goes through FileReader.readAsDataURL -> base64 text. No blob: URLs, ever. */
+async function readImageFile(file) {
+  const isSvg = file.type === 'image/svg+xml' || /\.svg$/i.test(file.name);
+  if (!isSvg && !file.type.startsWith('image/')) throw new Error('Please choose a PNG, JPG or SVG image.');
+  if (file.size > 12 * 1024 * 1024) throw new Error('That image is larger than 12 MB.');
+  const dataUrl = await new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(String(r.result));
+    r.onerror = () => rej(new Error('Could not read that file.'));
+    r.readAsDataURL(file);
+  });
+  if (isSvg) {
+    // decode the base64 payload only to normalise it (stretch-to-box); the result is still a base64 data URI
+    let text = '';
+    try {
+      const bin = atob(dataUrl.slice(dataUrl.indexOf(',') + 1));
+      text = new TextDecoder().decode(Uint8Array.from(bin, c => c.charCodeAt(0)));
+    } catch (_) { /* handled below */ }
+    const a = svgToAsset(text);
+    if (!a) throw new Error('That SVG could not be read.');
+    return a;
+  }
+  const img = await new Promise((res, rej) => {
+    const im = new Image();
+    im.onload = () => res(im);
+    im.onerror = () => rej(new Error('That image could not be decoded.'));
+    im.src = dataUrl;
+  });
+  const w = img.naturalWidth, h = img.naturalHeight, MAX = 1600;
+  if (Math.max(w, h) > MAX) {                                  // keep exports a sane size
+    const k = MAX / Math.max(w, h), cw = Math.round(w * k), ch = Math.round(h * k);
+    const c = document.createElement('canvas');
+    c.width = cw; c.height = ch;
+    c.getContext('2d').drawImage(img, 0, 0, cw, ch);
+    try { return { uri: c.toDataURL(file.type === 'image/png' ? 'image/png' : 'image/jpeg', .9), w: cw, h: ch }; } catch (_) { /* fall through */ }
+  }
+  return { uri: dataUrl, w, h };
+}
+
+/* =============================================================================
+   Any image -> vector.
+   SVG files pass straight through. Every other format the browser can decode (PNG, JPG, WebP, GIF, AVIF, BMP ...)
+   is traced into stacked, filled <path> shapes by the small tracer below. No libraries, nothing leaves the page.
+   Pipeline: downscale -> palette (popularity + k-means) -> one binary mask per colour, stacked from the biggest
+   colour up so neighbouring shapes overlap and never leave hairline gaps -> light blur -> marching squares at the
+   0.5 level (smooth sub-pixel contours) -> Douglas-Peucker simplification -> <path fill-rule="evenodd">.
+   ============================================================================= */
+const TRACE_MAX = 320;       // longest side the tracer works on, in px
+const TRACE_COLORS = 16;     // palette size limit
+const TRACE_MERGE = 40;      // colours closer than this (RGB distance) count as one
+const TRACE_EPS = 0.3;       // contour simplification tolerance, in traced px
+const TRACE_PAD = 3;         // edge-replicated border (px) so shapes that touch the image edge reach it exactly
+
+function traceImageToSVG(img) {
+  const sw = img.naturalWidth || img.width, sh = img.naturalHeight || img.height;
+  if (!(sw > 0 && sh > 0)) throw new Error('empty image');
+  const sc = Math.min(1, TRACE_MAX / Math.max(sw, sh));
+  const W = Math.max(1, Math.round(sw * sc)), H = Math.max(1, Math.round(sh * sc)), N = W * H;
+  const cv = document.createElement('canvas');
+  cv.width = W; cv.height = H;
+  const cx = cv.getContext('2d', { willReadFrequently: true });
+  cx.imageSmoothingEnabled = true;
+  cx.imageSmoothingQuality = 'high';
+  cx.drawImage(img, 0, 0, W, H);
+  const px = cx.getImageData(0, 0, W, H).data;
+
+  /* --- palette: most popular 5-bit colours that are far enough apart, then a few k-means passes --- */
+  const opaque = new Uint8Array(N);
+  const bins = new Map();
+  let nOpaque = 0;
+  for (let i = 0; i < N; i++) {
+    if (px[i * 4 + 3] < 128) continue;
+    opaque[i] = 1; nOpaque++;
+    const r = px[i * 4], g = px[i * 4 + 1], b = px[i * 4 + 2], key = ((r >> 3) << 10) | ((g >> 3) << 5) | (b >> 3);
+    let e = bins.get(key);
+    if (!e) bins.set(key, e = [0, 0, 0, 0]);
+    e[0]++; e[1] += r; e[2] += g; e[3] += b;
+  }
+  if (!nOpaque) throw new Error('fully transparent image');
+  const d2 = (a, b) => (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2 + (a[2] - b[2]) ** 2;
+  const cand = Array.from(bins.values()).sort((a, b) => b[0] - a[0]).map(e => [e[1] / e[0], e[2] / e[0], e[3] / e[0], e[0]]);
+  let pal = [];
+  const minCount = Math.max(2, nOpaque * 0.002);
+  for (const c of cand) {
+    if (pal.length >= TRACE_COLORS || (pal.length && c[3] < minCount)) break;
+    if (pal.every(p => d2(p, c) > TRACE_MERGE * TRACE_MERGE)) pal.push([c[0], c[1], c[2]]);
+  }
+  const lab = new Int16Array(N).fill(-1);
+  const assign = () => {                                   // nearest palette colour per pixel, then move colours to their cluster mean
+    const sum = pal.map(() => [0, 0, 0, 0]);
+    for (let i = 0; i < N; i++) {
+      if (!opaque[i]) { lab[i] = -1; continue; }
+      const c = [px[i * 4], px[i * 4 + 1], px[i * 4 + 2]];
+      let best = 0, bd = Infinity;
+      for (let j = 0; j < pal.length; j++) { const d = d2(pal[j], c); if (d < bd) { bd = d; best = j; } }
+      lab[i] = best;
+      const s = sum[best]; s[0] += c[0]; s[1] += c[1]; s[2] += c[2]; s[3]++;
+    }
+    sum.forEach((s, j) => { if (s[3]) pal[j] = [s[0] / s[3], s[1] / s[3], s[2] / s[3]]; });
+    return sum.map(s => s[3]);
+  };
+  let counts = assign(); counts = assign();
+  for (let round = 0; round < 3 && pal.length > 1; round++) {   // drop colours that only exist as anti-aliasing along other shapes' edges
+    const edge = pal.map(() => 0);
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+      const i = y * W + x, l = lab[i];
+      if (l < 0) continue;
+      if ((x > 0 && lab[i - 1] >= 0 && lab[i - 1] !== l) || (x < W - 1 && lab[i + 1] >= 0 && lab[i + 1] !== l)
+        || (y > 0 && lab[i - W] >= 0 && lab[i - W] !== l) || (y < H - 1 && lab[i + W] >= 0 && lab[i + W] !== l)) edge[l]++;
+    }
+    const keep = pal.map((_, j) => counts[j] >= nOpaque * 0.03 || edge[j] <= counts[j] * 0.8);
+    if (keep.every(Boolean) || !keep.some(Boolean)) break;
+    pal = pal.filter((_, j) => keep[j]);
+    counts = assign(); counts = assign();
+  }
+  const order = pal.map((_, j) => j).sort((a, b) => counts[b] - counts[a]);   // biggest colour = bottom layer
+  const rank = new Int16Array(pal.length);
+  order.forEach((j, r) => { rank[j] = r; });
+
+  /* --- one padded field per layer: 1 where the pixel belongs to this colour or any colour stacked above it --- */
+  const P = TRACE_PAD, FW = W + 2 * P + 2, FH = H + 2 * P + 2, FN = FW * FH;
+  let F = new Float32Array(FN), T = new Float32Array(FN);
+  const nb1 = new Int32Array(FN * 2), nb2 = new Int32Array(FN * 2), seen = new Uint8Array(FN * 2);
+  const blur = () => {                                     // [1 2 1] / 4 in both directions; a straight edge keeps its exact position
+    for (let y = 0; y < FH; y++) for (let x = 0; x < FW; x++) {
+      const i = y * FW + x;
+      T[i] = ((x > 0 ? F[i - 1] : 0) + 2 * F[i] + (x < FW - 1 ? F[i + 1] : 0)) / 4;
+    }
+    for (let y = 0; y < FH; y++) for (let x = 0; x < FW; x++) {
+      const i = y * FW + x;
+      F[i] = ((y > 0 ? T[i - FW] : 0) + 2 * T[i] + (y < FH - 1 ? T[i + FW] : 0)) / 4;
+    }
+  };
+  const r1 = v => +v.toFixed(1);
+  const MS = [null, [[3, 0]], [[0, 1]], [[3, 1]], [[1, 2]], null, [[0, 2]], [[3, 2]], [[3, 2]], [[0, 2]], null, [[1, 2]], [[3, 1]], [[0, 1]], [[3, 0]], null];  // edges: 0 top, 1 right, 2 bottom, 3 left
+  let paths = '';
+  for (let layer = 0; layer < pal.length; layer++) {
+    F.fill(0);
+    for (let y = 1; y < FH - 1; y++) {
+      const sy = Math.min(H - 1, Math.max(0, y - 1 - P));
+      for (let x = 1; x < FW - 1; x++) {
+        const l = lab[sy * W + Math.min(W - 1, Math.max(0, x - 1 - P))];
+        if (l >= 0 && rank[l] >= layer) F[y * FW + x] = 1;
+      }
+    }
+    blur();
+    nb1.fill(-1); nb2.fill(-1); seen.fill(0);
+    const link = (a, b) => { if (nb1[a] < 0) nb1[a] = b; else nb2[a] = b; if (nb1[b] < 0) nb1[b] = a; else nb2[b] = a; };
+    for (let y = 0; y < FH - 1; y++) for (let x = 0; x < FW - 1; x++) {
+      const i = y * FW + x;
+      const tl = F[i] >= 0.5, tr = F[i + 1] >= 0.5, br = F[i + FW + 1] >= 0.5, bl = F[i + FW] >= 0.5;
+      const ci = (tl ? 1 : 0) | (tr ? 2 : 0) | (br ? 4 : 0) | (bl ? 8 : 0);
+      if (ci === 0 || ci === 15) continue;
+      const E = [i * 2, (i + 1) * 2 + 1, (i + FW) * 2, i * 2 + 1];      // top h-edge, right v-edge, bottom h-edge, left v-edge
+      let segs = MS[ci];
+      if (!segs) {                                          // saddle: the cell centre decides which corners stay joined
+        const mid = (F[i] + F[i + 1] + F[i + FW] + F[i + FW + 1]) / 4 >= 0.5;
+        segs = ci === 5 ? (mid ? [[0, 1], [3, 2]] : [[3, 0], [1, 2]]) : (mid ? [[3, 0], [1, 2]] : [[0, 1], [3, 2]]);
+      }
+      segs.forEach(s => link(E[s[0]], E[s[1]]));
+    }
+    const pos = k => {                                      // crossing point of a grid edge, in traced-px coordinates
+      const i = k >> 1, x = i % FW, y = (i / FW) | 0;
+      if (k & 1) { const t = (0.5 - F[i]) / (F[i + FW] - F[i]); return [x - P - 0.5, y + t - P - 0.5]; }
+      const t = (0.5 - F[i]) / (F[i + 1] - F[i]);
+      return [x + t - P - 0.5, y - P - 0.5];
+    };
+    let d = '';
+    for (let s = 0; s < FN * 2; s++) {
+      if (nb1[s] < 0 || seen[s]) continue;
+      const pts = [];
+      let prev = -1, cur = s;
+      do {
+        seen[cur] = 1; pts.push(pos(cur));
+        const nx = nb1[cur] !== prev ? nb1[cur] : nb2[cur];
+        prev = cur; cur = nx;
+      } while (cur !== s && cur >= 0);
+      if (pts.length < 3) continue;
+      let area = 0;
+      for (let k = 0; k < pts.length; k++) { const a = pts[k], b = pts[(k + 1) % pts.length]; area += a[0] * b[1] - b[0] * a[1]; }
+      if (Math.abs(area / 2) < 2) continue;                 // specks of noise
+      const simple = simplifyLoop(pts, TRACE_EPS);
+      if (simple.length < 3) continue;
+      d += 'M' + simple.map(p => r1(p[0]) + ' ' + r1(p[1])).join(' ') + 'Z';
+    }
+    if (d) paths += `<path fill="${rgbHex(pal[order[layer]])}" fill-rule="evenodd" d="${d}"/>`;
+  }
+  if (!paths) throw new Error('nothing to trace');
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${paths}</svg>`;
+}
+
+function simplifyLoop(pts, eps) {                          // Douglas-Peucker on a closed loop, split at the point farthest from the start
+  const n = pts.length;
+  if (n < 4) return pts;
+  let far = 0, fd = -1;
+  for (let i = 1; i < n; i++) { const d = (pts[i][0] - pts[0][0]) ** 2 + (pts[i][1] - pts[0][1]) ** 2; if (d > fd) { fd = d; far = i; } }
+  if (!far) return pts;
+  const dp = line => {
+    const keep = new Uint8Array(line.length);
+    keep[0] = keep[line.length - 1] = 1;
+    const stack = [[0, line.length - 1]];
+    while (stack.length) {
+      const [i, j] = stack.pop(), A = line[i], B = line[j];
+      const dx = B[0] - A[0], dy = B[1] - A[1], len = Math.hypot(dx, dy);
+      let md = -1, mi = -1;
+      for (let k = i + 1; k < j; k++) {
+        const q = line[k];
+        const dist = len ? Math.abs(dx * (A[1] - q[1]) - (A[0] - q[0]) * dy) / len : Math.hypot(q[0] - A[0], q[1] - A[1]);
+        if (dist > md) { md = dist; mi = k; }
+      }
+      if (md > eps) { keep[mi] = 1; stack.push([i, mi], [mi, j]); }
+    }
+    return line.filter((_, k) => keep[k]);
+  };
+  const a = dp(pts.slice(0, far + 1)), b = dp(pts.slice(far).concat([pts[0]]));
+  return a.slice(0, -1).concat(b.slice(0, -1));
+}
+
+/* =============================================================================
+   Preset files: ./<category>/<file>, any image format
+   ============================================================================= */
+const IMG_EXTS = ['svg', 'png', 'jpg', 'jpeg', 'webp', 'gif', 'avif', 'bmp', 'jfif', 'apng', 'ico', 'tif', 'tiff', 'heic', 'heif'];
+const EXT_RE = new RegExp('\\.(' + IMG_EXTS.join('|') + ')$', 'i');
+const extRank = n => IMG_EXTS.indexOf(n.split('.').pop().toLowerCase());
+const PROBE_GROUPS = [['svg'], ['png', 'jpg', 'jpeg', 'webp', 'gif'], ['avif', 'bmp', 'jfif', 'apng', 'ico', 'tif', 'tiff', 'heic', 'heif']];
+const presetFile = new Map();      // "category/id" -> exact file name, when presets.json or the folder listing gave one
+
+const blobToDataUrl = blob => new Promise((res, rej) => {
+  const r = new FileReader();
+  r.onload = () => res(String(r.result));
+  r.onerror = () => rej(new Error('Could not read that file.'));
+  r.readAsDataURL(blob);
+});
+const blobToText = blob => new Promise((res, rej) => {
+  const r = new FileReader();
+  r.onload = () => res(String(r.result));
+  r.onerror = () => rej(new Error('Could not read that file.'));
+  r.readAsText(blob);
+});
+
+/* Any file -> { uri } holding a normalised base64 SVG, or null when it is not an image the browser can decode. */
+async function blobToVectorAsset(blob) {
+  if (/<svg[\s>]/i.test(await blobToText(blob.slice(0, 4096)))) return svgToAsset(await blobToText(blob));
+  const img = await new Promise((res, rej) => {
+    const im = new Image();
+    im.onload = () => res(im);
+    im.onerror = () => rej(new Error('decode'));
+    im.decoding = 'sync';
+    blobToDataUrl(blob).then(u => { im.src = u; }, rej);
+  });
+  return svgToAsset(traceImageToSVG(img));
+}
+
+/* One network call with a timeout and automatic retries. A dropped connection, a timeout or a 5xx/408/429 answer is
+   retried (after 0.25 s, then 1 s); a real answer such as 404 is final. Always resolves: { status, data, ct } where
+   status 200 = got it, 404 etc. = the server answered no, 0 or 5xx = the connection kept failing. */
+const isTransient = status => status === 0 || status >= 500 || status === 408 || status === 429;
+async function getResource(url, kind, { tries = 3, timeout = 12000, opts = {} } = {}) {
+  let status = 0;
+  for (let n = 0; n < tries; n++) {
+    const ac = window.AbortController ? new AbortController() : null;
+    const timer = ac ? setTimeout(() => ac.abort(), timeout) : 0;
+    try {
+      const res = await fetch(url, ac ? Object.assign({ signal: ac.signal }, opts) : opts);
+      status = res.status;
+      if (res.ok) {
+        const ct = res.headers.get('content-type') || '', data = await res[kind]();   // the timeout covers the body too
+        clearTimeout(timer);
+        return { status, data, ct };
+      }
+      clearTimeout(timer);
+      if (!isTransient(status)) return { status, data: null, ct: '' };
+    } catch (_) { clearTimeout(timer); status = 0; }
+    if (n < tries - 1) await new Promise(r => setTimeout(r, 250 * (n + 1) * (n + 1)));
+  }
+  return { status, data: null, ct: '' };
+}
+
+/* One folder's listing, when the server shows one (python http.server, nginx autoindex, Apache ...). Else []. */
+async function listFolder(cat) {
+  try {
+    const r = await getResource(`./${cat}/`, 'text', { tries: 1, timeout: 4000 });
+    if (typeof r.data !== 'string' || !/html/i.test(r.ct)) return [];
+    const doc = new DOMParser().parseFromString(r.data, 'text/html');
+    const base = new URL(`./${cat}/`, location.href), out = [];
+    $$('a[href]', doc).forEach(a => {
+      try {
+        const u = new URL(a.getAttribute('href'), base);
+        if (u.origin !== base.origin || !u.pathname.startsWith(base.pathname)) return;
+        const name = decodeURIComponent(u.pathname.slice(base.pathname.length));
+        if (name && !name.includes('/') && EXT_RE.test(name)) out.push(name);
+      } catch (_) { /* skip odd links */ }
+    });
+    return out.sort((a, b) => a.localeCompare(b));
+  } catch (_) { return []; }
+}
+
+/* presets.json first (the dropdown fills as soon as it arrives), folder listings merged in afterwards.
+   A listing that is slow, hangs or does not exist can never hold the dropdown back. */
+let presetListFailed = false;        // presets.json could not be fetched at all (not the same as "no presets.json")
+function applyPresetNames(data, listed) {
+  let changed = false;
+  Object.keys(presets).forEach((cat, ci) => {
+    const fromJson = data && Array.isArray(data[cat]) ? data[cat].filter(n => typeof n === 'string' && n.trim()).map(n => n.trim()) : [];
+    const ids = [];
+    fromJson.concat(listed ? listed[ci] : []).forEach(n => {
+      const m = n.match(EXT_RE), id = m ? n.slice(0, -m[0].length) : n;
+      if (!id) return;
+      const key = cat + '/' + id, old = presetFile.get(key);
+      if (m && (!old || extRank(n) < extRank(old))) presetFile.set(key, n);    // a known file name beats probing; svg beats the rest
+      if (!ids.includes(id)) ids.push(id);
+    });
+    if (ids.join('\n') !== presets[cat].join('\n')) changed = true;
+    presets[cat] = ids;
+  });
+  if (changed && state.selected !== null) renderPanel(true);
+}
+async function loadPresetList() {
+  let data = null;
+  const r = await getResource('./presets.json', 'text', { tries: 3, timeout: 6000, opts: { cache: 'no-cache' } });
+  presetListFailed = !r.data && isTransient(r.status);          // a plain 404 just means "no presets.json": a normal state
+  if (r.data) { try { data = JSON.parse(r.data); } catch (_) { /* bad JSON = no presets */ } }
+  applyPresetNames(data, null);
+  if (presetListFailed && state.selected !== null) renderPanel(true);
+  preloadAllPresets();                                     // starts right away; the folder listings below never delay it
+  applyPresetNames(data, await Promise.all(Object.keys(presets).map(listFolder)));
+  preloadAllPresets();
+}
+
+/* Preset loader: fetch -> (vectorise) -> normalise -> base64 -> cache. */
+const assetCache = new Map();
+const inflight = new Set();
+
+async function loadPreset(cat, id) {
+  const known = presetFile.get(cat + '/' + id);
+  const groups = known ? [[known]] : PROBE_GROUPS.map(g => g.map(x => id + '.' + x)).concat(id.includes('.') ? [[id]] : []);
+  let found = false;
+  for (const names of groups) {
+    const got = await Promise.all(names.map(n => getResource(`./${cat}/${encodeURIComponent(n)}`, 'blob')));   // one group in parallel, list order decides
+    let failed = false;
+    for (const r of got) {
+      if (r.data) {
+        found = true;
+        try { const a = await blobToVectorAsset(r.data); if (a) return { status: 'ok', uri: a.uri }; } catch (_) { /* try the next candidate */ }
+      } else if (isTransient(r.status)) failed = true;
+    }
+    if (failed && !found) return { status: 'error' };          // the connection failed, so "not found" would be a guess
+  }
+  return { status: found ? 'invalid' : 'missing' };
+}
+function getPreset(cat, id) {
+  const key = cat + '/' + id;
+  let a = assetCache.get(key);
+  if (!a) {
+    a = { status: 'loading' };
+    assetCache.set(key, a);
+    const p = loadPreset(cat, id)
+      .then(res => Object.assign(a, res))
+      .catch(() => { a.status = 'error'; })
+      .finally(() => { inflight.delete(p); onAssetSettled(); });
+    a.promise = p;
+    inflight.add(p);
+  }
+  return a;
+}
+/* Forget a failed or missing result so the next look fetches it again (re-selecting a flag, "Try again", or a file
+   that was dropped into the folder a moment ago). A flag that loaded fine, or is still loading, is left alone. */
+function forgetFailedPreset(cat, id) {
+  const a = assetCache.get(cat + '/' + id);
+  if (a && a.status !== 'ok' && a.status !== 'loading') assetCache.delete(cat + '/' + id);
+}
+let settleTimer = 0;
+function onAssetSettled() {                                // many flags settle in a burst at startup: repaint once per burst
+  if (settleTimer) return;
+  settleTimer = setTimeout(() => { settleTimer = 0; renderAllQuads(); updateNotes(); refreshPresetThumbs(); }, 50);
+}
+
+/* Every flag in every list loads as soon as the page opens, four requests at a time, so picking one is instant.
+   getPreset caches, so calling this again after the folder listings arrive only fetches the newly found names. */
+async function preloadAllPresets() {
+  const jobs = [];
+  Object.keys(presets).forEach(cat => presets[cat].forEach(id => jobs.push([cat, id])));
+  let next = 0;
+  const worker = async () => {
+    while (next < jobs.length) {
+      const a = getPreset(...jobs[next++]);
+      if (a.promise) await a.promise;
+    }
+  };
+  await Promise.all([worker(), worker(), worker(), worker()]);
+}
+function refreshPresetThumbs() {                           // a flag that finished loading shows up in its row thumbnail
+  const qi = state.selected;
+  if (qi === null || qi > 2) return;
+  const q = state.quads[qi];
+  $$('.row', panel).forEach(row => {
+    const it = q.items.find(x => x.uid === row.dataset.uid);
+    if (it && it.kind === 'preset') refreshRow(row, qi, it);
+  });
+}
+
+/* What does an element paint with? */
+function resolvePaint(qi, it) {
+  switch (it.kind) {
+    case 'preset': {
+      if (!it.preset) return null;
+      const a = getPreset(META[qi].key, it.preset);
+      return a.status === 'ok' ? { t: 'img', href: a.uri } : null;
+    }
+    case 'custom':   return it.uri ? { t: 'img', href: it.uri } : null;
+    case 'spectrum': return { t: 'fill', fill: spectrumColor(it.value) };
+    case 'color':    return { t: 'fill', fill: it.color };
+    case 'texture':  return it.uri ? { t: 'tex', href: it.uri, w: it.w || 1, h: it.h || 1, mode: it.mode, tile: it.tile } : null;
+  }
+  return null;
+}
+
+/* =============================================================================
+   SVG generation
+   ============================================================================= */
+const region = (g, vert, a, b) => vert
+  ? { x: g.x, y: g.y + a * g.h, w: g.w, h: (b - a) * g.h }
+  : { x: g.x + a * g.w, y: g.y, w: (b - a) * g.w, h: g.h };
+const grayHex = v => { const h = Math.round(clamp(v, 0, 1) * 255).toString(16).padStart(2, '0'); return '#' + h + h + h; };
+
+/* Luminance-mask stops for one element along the quadrant axis (0..1).
+   Hard edges = two stops on the same offset; gradient edges = smoothstep ramp across the seam. */
+function maskStops(s, hl, gl, edgeR, startL = 0) {         // startL: how far an arrow notch reaches before the element start
+  const st = [];
+  const put = (o, v) => st.push([clamp(o, 0, 1), v]);
+  if (gl) {
+    const K = 8;
+    for (let t = 0; t <= K; t++) { const u = t / K; put(s - hl + 2 * hl * u, u * u * (3 - 2 * u)); }
+  } else { put(s - startL, 0); put(s - startL, 1); }
+  put(edgeR, 1); put(edgeR, 0);
+  return st;
+}
+
+/* =============================================================================
+   Symbol glyphs — vector strokes on a 24 x 24 grid, so they never depend on installed fonts.
+   Used by the Style quadrant's text only: typing one of these characters in a Style element's text draws it
+   as the vector shape below. The Gender quadrant has no text and no symbols at all.
+   ============================================================================= */
+const ATOMS = {
+  male:    { ch: '\u2642',    d: 'M4.5 14a5.5 5.5 0 1 0 11 0a5.5 5.5 0 1 0-11 0M14 10l7-7M15 3h6v6' },
+  female:  { ch: '\u2640',    d: 'M6.5 9a5.5 5.5 0 1 0 11 0a5.5 5.5 0 1 0-11 0M12 14.5V22M8.5 18.5h7' },
+  third:   { ch: '\u263F',    d: 'M7.5 13a4.5 4.5 0 1 0 9 0a4.5 4.5 0 1 0-9 0M12 17.5V23M9 20.5h6M7.5 3.5a4.5 4.5 0 0 0 9 0' },
+  neutral: { ch: '\u26B2',    d: 'M4 9a5 5 0 1 0 10 0a5 5 0 1 0-10 0M12.5 12.5L20 20' },
+  xeno:    { ch: '\u{1F70D}', d: 'M12 3l6 10H6zM12 13v9M8.5 17h7' },
+  void:    { ch: '\u25CB',    d: 'M5.5 12a6.5 6.5 0 1 0 13 0a6.5 6.5 0 1 0-13 0' }
+};
+const ATOM_BY_CH = {};
+Object.keys(ATOMS).forEach(k => { ATOM_BY_CH[ATOMS[k].ch] = k; });
+
+/* =============================================================================
+   Element text — the old "centred text" engine, now one instance per Style element.
+   Same look: always centred, auto-shrink to fit. Controls: colour, size, weight, soft outline.
+   ============================================================================= */
+const FONT_STACK = "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif";
+const ATOM_EM = 1.2, RUN_GAP = 0.3;                      // atom box and spacing between runs, in em
+const newText = () => ({ value: '', color: '#ffffff', size: 18, weight: 600, outline: true });
+
+let measureCtx;
+function textWidth(str, fs, weight) {
+  try {
+    measureCtx = measureCtx || document.createElement('canvas').getContext('2d');
+    measureCtx.font = `${weight} ${fs}px ${FONT_STACK}`;
+    return measureCtx.measureText(str).width;
+  } catch (_) { return Array.from(str).length * fs * 0.6; }   // no canvas: ~0.6 em per glyph
+}
+
+/* "♂ femboy" -> [{k:'male'}, {s:'femboy'}]: atom characters become vector runs, everything else stays text. */
+function labelRuns(str) {
+  const runs = [];
+  let buf = '';
+  const flush = () => { const t = buf.trim(); if (t) runs.push({ s: t }); buf = ''; };
+  for (const ch of Array.from(str)) {
+    const k = ATOM_BY_CH[ch];
+    if (k) { flush(); runs.push({ k }); } else buf += ch;
+  }
+  flush();
+  return runs;
+}
+
+/* One element's text, laid out inside that element's own slice c = {x,y,w,h}. Template = the old centred text:
+   middle of the slice, central baseline, halo stroke chosen by colour luminance, shrunk to fit.
+   A narrow strip (< 60 units) runs the text up the strip instead of shrinking it to nothing. */
+function labelMarkup(it, c, vert) {
+  const T = it.txt;
+  const runs = T ? labelRuns(String(T.value || '')) : [];
+  if (!runs.length) return '';
+  const rot = !vert && c.w < 60;
+  const along = rot ? c.h : c.w, pad = rot ? 6 : 4;
+  let fs = T.size;
+  if (rot) fs = Math.min(fs, Math.max(6, (c.w - 6) / ATOM_EM));
+  const w0 = runs.map(r => (r.k ? fs * ATOM_EM : textWidth(r.s, fs, T.weight)));
+  const total0 = w0.reduce((a, b) => a + b, 0) + fs * RUN_GAP * (runs.length - 1);
+  const k = total0 > 0 ? Math.min(1, Math.max(1, along - 2 * pad) / total0) : 1;   // every width scales with the font size, so one factor fits the line
+  fs *= k;
+  const total = total0 * k, gap = fs * RUN_GAP;
+  const cx = c.x + c.w / 2, cy = c.y + c.h / 2;
+  let x = cx - total / 2;                                  // always centred on the element
+  const halo = luminance(T.color) > 0.55 ? '#000000' : '#ffffff';
+  const parts = runs.map((r, i) => {
+    const x0 = x;
+    x += w0[i] * k + gap;
+    if (r.k) {
+      const box = fs * ATOM_EM, d = ATOMS[r.k].d;
+      const ring = T.outline ? `<path d="${d}" stroke="${halo}" stroke-opacity=".5" stroke-width="4.6"/>` : '';
+      return `<g transform="translate(${fmt(x0)} ${fmt(cy - box / 2)}) scale(${fmt(box / 24)})" fill="none" stroke-linecap="round" stroke-linejoin="round">${ring}<path d="${d}" stroke="${T.color}" stroke-width="2.2"/></g>`;
+    }
+    const stroke = T.outline ? ` stroke="${halo}" stroke-opacity=".5" stroke-width="${fmt(fs * 0.16)}" stroke-linejoin="round" paint-order="stroke"` : '';
+    return `<text x="${fmt(x0)}" y="${fmt(cy)}" text-anchor="start" dominant-baseline="central" font-size="${fmt(fs)}" font-weight="${T.weight}" fill="${T.color}"${stroke}>${esc(r.s)}</text>`;
+  }).join('');
+  return rot ? `<g transform="rotate(-90 ${fmt(cx)} ${fmt(cy)})">${parts}</g>` : parts;
+}
+
+/* ---------- per-element text panel (Style quadrant only) ---------- */
+const WEIGHTS = [[400, 'Regular'], [600, 'Semibold'], [700, 'Bold']];
+const txtPreview = it => { const v = String(it.txt.value || '').trim(); return v ? Array.from(v).slice(0, 16).join('') : 'none'; };
+
+function textControls(qi, it, idx) {
+  const T = it.txt;
+  const seg = (action, list, cur, label) => `<span class="seg" role="group" aria-label="${label}">${list.map(([v, l]) =>
+    `<button class="seg-btn${cur === v ? ' is-on' : ''}" type="button" data-action="${action}" data-val="${v}">${l}</button>`).join('')}</span>`;
+  return `<details class="txt" data-txt="${it.uid}"${openText.has(it.uid) ? ' open' : ''}>
+    <summary>Text on element<span class="txt-prev" data-prev>${esc(txtPreview(it))}</span></summary>
+    <div class="txt-body">
+      <input type="text" value="${esc(T.value || '')}" maxlength="40" placeholder="e.g. Goth, Cottagecore" spellcheck="false" autocomplete="off" data-field="txValue" aria-label="Text on element ${idx + 1}">
+      <div class="field-line" style="margin-top:0">
+        <input type="color" value="${T.color}" data-field="txColor" aria-label="Text color">
+        <input class="grow" type="range" min="8" max="36" step="1" value="${T.size}" data-field="txSize" aria-label="Text size">
+      </div>
+      <div class="txt-segs">${seg('txweight', WEIGHTS, T.weight, 'Font weight')}</div>
+      <label class="check"><input type="checkbox" data-field="txOutline"${T.outline ? ' checked' : ''}> Soft outline for contrast</label>
+    </div></details>`;
+}
+
+/* Arrow transition: the joint between two elements is a chevron pointing along the stacking direction (right, or down in a
+   vertical Style grid). Both sides of the joint are parallel chevrons, so every element keeps its full width on every row.
+   depth = how far the chevron reaches to either side of the joint; it is derived from ARROW_ANGLE and capped so that
+   narrow neighbours still get a clean, if flatter, arrow. */
+function arrowDepth(g, vert, L, fa, fb) {
+  const half = (vert ? g.w : g.h) / 2;                              // distance from the centre line to the quadrant edge
+  const ideal = half / (2 * Math.tan((ARROW_ANGLE / 2) * Math.PI / 180));
+  return Math.min(ideal, 0.4 * Math.min(fa, fb) * L);
+}
+/* Outline of one element when it has an arrow on its near side (al: notch), far side (ar: tip), or both.
+   Walks: top-left, far side down, bottom-left, then back up through the notch tip. r = the element's plain rectangle. */
+function arrowPoints(g, vert, L, s, e, al, ar, dl, dr, r, seam) {
+  const A0 = vert ? g.y : g.x, C0 = vert ? g.x : g.y, CW = vert ? g.w : g.h;
+  const top = C0, mid = C0 + CW / 2, bot = C0 + CW;
+  const u0 = A0 + s * L, u1 = A0 + e * L;
+  const rs = vert ? r.y : r.x, re = vert ? r.y + r.h : r.x + r.w;   // plain rectangle ends along the stacking axis
+  const P = (u, v) => (vert ? [v, u] : [u, v]);
+  const pts = [al ? P(u0 - dl, top) : P(rs, top)];
+  if (ar) pts.push(P(u1 - dr + seam, top), P(u1 + dr + seam, mid), P(u1 - dr + seam, bot));
+  else pts.push(P(re, top), P(re, bot));
+  if (al) pts.push(P(u0 - dl, bot), P(u0 + dl, mid));
+  else pts.push(P(rs, bot));
+  return pts.map(p => fmt(p[0]) + ',' + fmt(p[1])).join(' ');
+}
+
+function quadMarkup(qi) {
+  const q = state.quads[qi], g = GEOM[qi], p = 'q' + qi;
+  const vert = qi === 3 && q.dir === 'v';
+  const L = vert ? g.h : g.w;
+  const priv = q.priv;                                   // private = plain neutral gray, nothing else drawn
+  const defs = [], body = [], labels = [];
+
+  if (!priv) {
+    const n = q.items.length;
+    const total = q.items.reduce((a, it) => a + it.weight, 0) || 1;
+    const f = q.items.map(it => it.weight / total);
+    let cur = 0;
+    q.items.forEach((it, k) => {
+      const s = cur, e = cur + f[k];
+      cur = e;
+      // an element with no flag yet still holds its slice (neutral gray) so it can be dimmed and labelled
+      const paint = resolvePaint(qi, it) || (qi < 3 ? { t: 'fill', fill: GRAY } : null);
+      if (qi === 3 && it.txt) labels.push(labelMarkup(it, region(g, vert, s, e), vert));   // Style only: text on top of this element
+      if (!paint) return;
+      const gl = k > 0 && q.blends[k - 1] === 'gradient';
+      const gr = k < n - 1 && q.blends[k] === 'gradient';
+      const al = k > 0 && q.blends[k - 1] === 'arrow';        // arrow joint on this element's near side (a notch)
+      const ar = k < n - 1 && q.blends[k] === 'arrow';        // arrow joint on its far side (the tip)
+      const hl = gl ? Math.min(f[k - 1], f[k]) / 2 : 0;
+      const hr = gr ? Math.min(f[k], f[k + 1]) / 2 : 0;
+      const dl = al ? arrowDepth(g, vert, L, f[k - 1], f[k]) : 0;   // how far the chevron reaches either side of the joint, in units
+      const dr = ar ? arrowDepth(g, vert, L, f[k], f[k + 1]) : 0;
+      const pad = !gr && !ar && k < n - 1 ? SEAM / L : 0;
+      const a = clamp(s - hl - dl / L, 0, 1), b = clamp(e + hr + pad + (ar ? (dr + SEAM) / L : 0), 0, 1);
+      const r = region(g, vert, a, b);
+      const R = `x="${fmt(r.x)}" y="${fmt(r.y)}" width="${fmt(r.w)}" height="${fmt(r.h)}"`;
+
+      let node;
+      if (paint.t === 'img') {
+        node = `<image ${R} preserveAspectRatio="none" xlink:href="${esc(paint.href)}"/>`;
+      } else if (paint.t === 'fill') {
+        node = `<rect ${R} fill="${paint.fill}"/>`;
+      } else {
+        const pid = `${p}-p${k}`;
+        let tw = r.w, th = r.h;
+        if (paint.mode === 'tile') { tw = paint.tile; th = paint.tile * (paint.h / paint.w); }
+        defs.push(`<pattern id="${pid}" patternUnits="userSpaceOnUse" x="${fmt(r.x)}" y="${fmt(r.y)}" width="${fmt(tw)}" height="${fmt(th)}"><image x="0" y="0" width="${fmt(tw)}" height="${fmt(th)}" preserveAspectRatio="none" xlink:href="${esc(paint.href)}"/></pattern>`);
+        node = `<rect ${R} fill="url(#${pid})"/>`;
+      }
+
+      // per-element dimming: black layer directly on this flag, inside the same blend mask + clip, beneath every label
+      const dk = darkness(qi, it);
+      if (dk > 0) node += `<rect ${R} fill="#000000" opacity="${fmt(dk)}"/>`;
+
+      // blends: a luminance mask driven by a linearGradient along the stacking axis (x1/x2 or y1/y2)
+      if (gl || gr) {
+        const gid = `${p}-g${k}`, mid = `${p}-m${k}`;
+        const stops = maskStops(s, hl, gl, gr ? e + hr : e + pad + (ar ? (dr + SEAM) / L : 0), dl / L)
+          .map(([o, v]) => `<stop offset="${fmt(o)}" stop-color="${grayHex(v)}"/>`).join('');
+        const vec = vert
+          ? `x1="${g.x}" y1="${g.y}" x2="${g.x}" y2="${g.y + g.h}"`
+          : `x1="${g.x}" y1="${g.y}" x2="${g.x + g.w}" y2="${g.y}"`;
+        defs.push(`<linearGradient id="${gid}" gradientUnits="userSpaceOnUse" ${vec}>${stops}</linearGradient>`);
+        defs.push(`<mask id="${mid}" maskUnits="userSpaceOnUse" x="${g.x}" y="${g.y}" width="${g.w}" height="${g.h}"><rect x="${g.x}" y="${g.y}" width="${g.w}" height="${g.h}" fill="url(#${gid})"/></mask>`);
+        node = `<g mask="url(#${mid})">${node}</g>`;
+      }
+      // every element sits inside its own unique clipPath matching its slice of the quadrant, so nothing can overflow
+      const cid = `${p}-c${k}`;
+      const shape = al || ar ? `<polygon points="${arrowPoints(g, vert, L, s, e, al, ar, dl, dr, r, SEAM)}"/>` : `<rect ${R}/>`;
+      defs.push(`<clipPath id="${cid}">${shape}</clipPath>`);
+      body.push(`<g clip-path="url(#${cid})">${node}</g>`);
+    });
+  }
+
+  let out = `<defs><clipPath id="${p}-clip"><rect x="${g.x}" y="${g.y}" width="${g.w}" height="${g.h}"/></clipPath>${defs.join('')}</defs>`;
+  out += `<g clip-path="url(#${p}-clip)"><rect x="${g.x}" y="${g.y}" width="${g.w}" height="${g.h}" fill="${GRAY}"/>${body.join('')}`;
+  out += labels.join('');                                // top layer: flag -> dimming -> label
+  out += `</g>`;
+
+  return out;
+}
+
+function renderQuad(i) {
+  const layer = $('#q' + i);
+  layer.innerHTML = quadMarkup(i);
+}
+const renderAllQuads = () => [0, 1, 2, 3].forEach(renderQuad);
+
+/* Bar text: 16-unit base size (= 80 px on the 2000 px PNG). The usable width is the 400-unit grid minus the
+   4-unit black border and 12 units of breathing room per side, so the text can never touch or clip the borders. */
+const BAR_FS = 16, BAR_FS_MIN = 8, BAR_MAX_W = 368;
+
+function fitBarText(el) {
+  ['textLength', 'lengthAdjust'].forEach(a => el.removeAttribute(a));
+  el.setAttribute('font-size', BAR_FS);
+  if (!el.textContent) return;
+  try {
+    let fs = BAR_FS;
+    for (let pass = 0; pass < 3; pass++) {           // glyph hinting makes scaling slightly non-linear, so re-measure
+      const w = el.getBBox().width;
+      if (!w) throw new Error('not measurable');
+      if (w <= BAR_MAX_W) return;
+      fs = Math.max(fs * (BAR_MAX_W / w), BAR_FS_MIN);
+      el.setAttribute('font-size', fmt(fs));
+      if (fs === BAR_FS_MIN) break;
+    }
+    // hard stop: still too wide at the minimum size -> squeeze the glyphs to the allowed width instead of overflowing
+    if (el.getBBox().width > BAR_MAX_W) {
+      el.setAttribute('textLength', BAR_MAX_W);
+      el.setAttribute('lengthAdjust', 'spacingAndGlyphs');
+    }
+  } catch (_) {
+    // no layout available (hidden tab / detached): estimate from the character count, ~0.62 em per glyph
+    const est = BAR_MAX_W / (Array.from(el.textContent).length * 0.62);
+    el.setAttribute('font-size', fmt(clamp(est, BAR_FS_MIN, BAR_FS)));
+  }
+}
+
+function renderBars() {
+  const set = (el, val) => {
+    el.textContent = val.trim();
+    el.setAttribute('fill', '#1c1c1e');
+    el.setAttribute('font-weight', '500');
+    el.setAttribute('text-anchor', 'middle');        // always centred on x=200, even after the size changes
+    fitBarText(el);
+  };
+  set($('#topText'), state.top);
+  set($('#bottomText'), state.bottom);
+}
+function renderAll() { renderBars(); renderAllQuads(); }
+
+/* =============================================================================
+   Element list logic
+   ============================================================================= */
+function newItem(kind, nth) {
+  const it = { uid: uid(), kind, weight: 100 };
+  if (kind === 'preset') it.preset = '';
+  if (kind === 'spectrum') it.value = 50;
+  if (kind === 'color') it.color = PALETTE[nth % PALETTE.length];
+  if (kind === 'texture') Object.assign(it, { uri: '', name: '', w: 0, h: 0, mode: 'tile', tile: 60 });
+  return it;
+}
+function ensureKind(it, kind, nth) {
+  const base = newItem(kind, nth);
+  it.kind = kind;
+  Object.keys(base).forEach(k => { if (k !== 'uid' && k !== 'weight' && it[k] === undefined) it[k] = base[k]; });
+}
+function addItem(qi, kind) {
+  const q = state.quads[qi], n = q.items.length;
+  const it = newItem(kind, n);
+  it.intensity = defaultIntensity(qi);                   // quadrants 1-3: 0% (untouched) · quadrant 4 Intensity: 100% (untouched)
+  if (qi === 3) it.txt = newText();                      // only Style elements carry text; Gender stays a pure flag
+  if (n) {
+    const k = n / (n + 1);
+    q.items.forEach(x => { x.weight *= k; });
+    it.weight = 100 / (n + 1);
+    q.blends.push('sharp');
+  }
+  q.items.push(it);
+}
+function removeItem(q, id) {
+  const i = q.items.findIndex(x => x.uid === id);
+  if (i < 0) return;
+  q.items.splice(i, 1);
+  if (q.blends.length) q.blends.splice(Math.min(i, q.blends.length - 1), 1);
+  const t = q.items.reduce((a, x) => a + x.weight, 0);
+  if (t > 0) q.items.forEach(x => { x.weight = x.weight / t * 100; });
+}
+function moveItem(q, id, d) {
+  const i = q.items.findIndex(x => x.uid === id), j = i + d;
+  if (i < 0 || j < 0 || j >= q.items.length) return;
+  [q.items[i], q.items[j]] = [q.items[j], q.items[i]];
+}
+function setWeight(q, id, v) {
+  const n = q.items.length;
+  if (n < 2) return;
+  const it = q.items.find(x => x.uid === id);
+  v = clamp(v, 1, 100 - (n - 1));
+  const others = q.items.filter(x => x !== it);
+  const rest = others.reduce((a, x) => a + x.weight, 0);
+  others.forEach(x => { x.weight = rest > 0 ? x.weight / rest * (100 - v) : (100 - v) / others.length; });
+  it.weight = v;
+}
+
+/* =============================================================================
+   Panel rendering
+   ============================================================================= */
+const ICON_CLOSE = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
+function rowVisual(qi, it) {
+  const cat = META[qi].key;
+  switch (it.kind) {
+    case 'preset': {
+      const a = it.preset ? getPreset(cat, it.preset) : null;      // the loaded, vectorised asset, whatever the source format was
+      return { bg: '', html: a && a.status === 'ok' ? `<img alt="" src="${esc(a.uri)}">` : '', title: it.preset ? labelOf(it.preset) : 'No flag selected' };
+    }
+    case 'custom':
+      return { bg: '', html: `<img alt="" src="${esc(it.uri)}">`, title: it.name ? trunc(it.name) : 'Custom flag' };
+    case 'spectrum':
+      return { bg: spectrumColor(it.value), html: '', title: 'Spectrum · ' + specLabel(it.value) };
+    case 'color':
+      return { bg: it.color, html: '', title: 'Color · ' + it.color.toUpperCase() };
+    default:
+      return { bg: '', html: it.uri ? `<img alt="" style="object-fit:cover" src="${esc(it.uri)}">` : '', title: it.uri ? trunc(it.name || 'Texture') : 'No texture yet' };
+  }
+}
+
+function rowShell(qi, q, it, idx, main, extra = '') {
+  const n = q.items.length, v = rowVisual(qi, it);
+  const di = Math.round(intensityOf(qi, it)), lab = META[qi].ace, bright = qi === 3;
+  const dim = `<div class="dim"><div class="dim-head"><span class="mini">${esc(lab)}</span><span class="pct" data-out="intensity">${di}%</span></div><input class="ace${bright ? ' bright' : ''}" type="range" min="0" max="100" step="1" value="${di}" data-field="intensity" aria-label="${esc(lab)} of element ${idx + 1}: ${bright ? '100% full brightness, 0% solid black' : '0% full colour, 100% solid black'}"></div>`;
+  const wt = n > 1
+    ? `<div class="weight"><span class="mini">Width</span><input type="range" min="1" max="${100 - (n - 1)}" step="1" value="${Math.round(it.weight)}" data-field="weight" aria-label="Width of element ${idx + 1}"><span class="pct" data-pct>${Math.round(it.weight)}%</span></div>`
+    : `<div class="weight"><span class="mini">Width</span><span class="pct" style="margin-left:auto">100%</span></div>`;
+  return `<div class="row" data-uid="${it.uid}">
+    <div class="row-head">
+      <span class="idx">${idx + 1}</span>
+      <span class="thumb" style="${v.bg ? `background:${v.bg};` : ''}--dim:${darkness(qi, it)}">${v.html}</span>
+      <span class="row-title">${esc(v.title)}</span>
+      <span class="row-ctl">
+        <button class="icon-btn sm" type="button" data-action="up" aria-label="Move up"${idx === 0 ? ' disabled' : ''}>▲</button>
+        <button class="icon-btn sm" type="button" data-action="down" aria-label="Move down"${idx === n - 1 ? ' disabled' : ''}>▼</button>
+        <button class="icon-btn sm danger" type="button" data-action="remove" aria-label="Remove element">✕</button>
+      </span>
+    </div>
+    <div class="row-body">${main}${wt}${dim}${extra}</div>
+    <div class="note" data-note hidden></div>
+  </div>`;
+}
+
+function flagRow(qi, q, it, idx) {
+  const list = presets[META[qi].key];
+  const custom = it.kind === 'custom' ? `<option value="__custom" selected>Custom: ${esc(trunc(it.name || 'upload', 18))}</option>` : '';
+  let opts;
+  if (!list.length) {
+    // presets.json gave us nothing: the dropdown holds zero presets, upload is the only way in
+    opts = custom || '<option value="" selected disabled>No presets available</option>';
+  } else {
+    opts = '<option value="">Choose preset…</option>'
+      + list.map(id => `<option value="${esc(id)}"${it.kind === 'preset' && it.preset === id ? ' selected' : ''}>${esc(labelOf(id))}</option>`).join('')
+      + custom;
+  }
+  let main = `<div class="line"><select data-field="preset" aria-label="Flag preset"${list.length ? '' : ' disabled'}>${opts}</select><button class="btn small" type="button" data-action="upload">Upload Custom Flag</button></div>`;
+  return rowShell(qi, q, it, idx, main);
+}
+
+function styleRow(qi, q, it, idx) {
+  const kinds = [['spectrum', 'Spectrum slider'], ['color', 'RGB color'], ['texture', 'Texture']];
+  const sel = `<select data-field="kind" aria-label="Element type">${kinds.map(([k, l]) => `<option value="${k}"${it.kind === k ? ' selected' : ''}>${l}</option>`).join('')}</select>`;
+  let main = sel;
+  if (it.kind === 'spectrum') {
+    main += `<input class="spectrum" type="range" min="0" max="100" step="1" value="${it.value}" data-field="value" aria-label="Masculine to feminine">
+             <div class="spec-scale"><span>Masculine</span><span>Androgynous</span><span>Feminine</span></div>`;
+  } else if (it.kind === 'color') {
+    main += `<div class="color-line"><input type="color" value="${it.color}" data-field="color" aria-label="Pick a color"><input class="hex" type="text" value="${it.color}" maxlength="7" spellcheck="false" autocomplete="off" data-field="hex" aria-label="Hex color"></div>`;
+  } else {
+    main += `<div class="line"><button class="btn small" type="button" data-action="upload">${it.uri ? 'Replace Texture' : 'Upload Texture'}</button>
+             <span class="seg"><button class="seg-btn${it.mode === 'tile' ? ' is-on' : ''}" type="button" data-action="texmode" data-val="tile">Tile</button><button class="seg-btn${it.mode === 'stretch' ? ' is-on' : ''}" type="button" data-action="texmode" data-val="stretch">Stretch</button></span></div>`;
+    if (it.mode === 'tile') {
+      main += `<div class="weight"><span class="mini">Size</span><input type="range" min="10" max="200" step="1" value="${it.tile}" data-field="tile" aria-label="Tile size"><span class="pct" data-out="tile">${it.tile}</span></div>`;
+    }
+  }
+  return rowShell(qi, q, it, idx, main, textControls(qi, it, idx));
+}
+
+function gapHtml(idx, val) {
+  return `<div class="gap"><span class="seg" role="group" aria-label="Transition between element ${idx + 1} and ${idx + 2}">
+    <button class="seg-btn${val !== 'gradient' && val !== 'arrow' ? ' is-on' : ''}" type="button" data-action="blend" data-idx="${idx}" data-val="sharp" title="Hard edge — identities that co-exist">Sharp</button>
+    <button class="seg-btn${val === 'gradient' ? ' is-on' : ''}" type="button" data-action="blend" data-idx="${idx}" data-val="gradient" title="Smooth blend — fluid or shifting identities">Gradient</button>
+    <button class="seg-btn${val === 'arrow' ? ' is-on' : ''}" type="button" data-action="blend" data-idx="${idx}" data-val="arrow" title="Arrow — the orientations after it are specific ones under the umbrella before it">Arrow</button>
+  </span><button class="help-btn" type="button" data-action="blend-help" aria-haspopup="dialog" aria-label="What do Sharp, Gradient and Arrow mean?" title="What do Sharp, Gradient and Arrow mean?">?</button></div>`;
+}
+
+function rowsHtml(qi, q, rowFn) {
+  if (!q.items.length) return `<div class="empty">No elements yet. Add one to start filling this quadrant.</div>`;
+  return q.items.map((it, i) => rowFn(qi, q, it, i) + (i < q.items.length - 1 ? gapHtml(i, q.blends[i]) : '')).join('');
+}
+
+/* Private / Hide switch — identical for all four quadrants */
+function privacyBlock(q) {
+  return `<div class="block"><div class="block-row">
+      <div><div class="label">Private / Hide</div><div class="help">Overrides everything and resets this quadrant to clean neutral gray.</div></div>
+      <button type="button" class="switch${q.priv ? ' is-on' : ''}" role="switch" aria-checked="${q.priv}" data-action="private" aria-label="Private / Hide"><span></span></button>
+    </div></div>`;
+}
+
+function flagSections(qi, q, m) {
+  const none = presets[m.key].length === 0;
+  return `${privacyBlock(q)}
+    <div class="dimmable${q.priv ? ' is-dim' : ''}">
+      <div class="section-title"><span class="label">Elements</span><button class="btn small" type="button" data-action="add">+ Add Element</button></div>
+      <div class="help" style="margin:-6px 2px 0">Every element has its own ${esc(m.ace)} slider: 0% (default) keeps the flag in full colour, 100% turns that element solid black.</div>
+      ${none ? (presetListFailed
+        ? '<div class="help" style="margin:-6px 2px 0">Could not load the preset list: the connection to the server failed. <button class="btn small" type="button" data-action="reload-presets">Try again</button></div>'
+        : '<div class="help" style="margin:-6px 2px 0">No presets are configured here — use “Upload Custom Flag” on each element.</div>') : ''}
+      ${rowsHtml(qi, q, flagRow)}
+    </div>`;
+}
+
+function styleSections(qi, q) {
+  return `${privacyBlock(q)}
+    <div class="dimmable${q.priv ? ' is-dim' : ''}">
+      <div class="block">
+        <div class="label" style="margin-bottom:10px">Grid direction</div>
+        <div class="seg full" role="group" aria-label="Grid direction">
+          <button class="seg-btn${q.dir === 'h' ? ' is-on' : ''}" type="button" data-action="dir" data-val="h">Left to Right (Horizontal)</button>
+          <button class="seg-btn${q.dir === 'v' ? ' is-on' : ''}" type="button" data-action="dir" data-val="v">Top to Bottom (Vertical)</button>
+        </div>
+      </div>
+      <div class="section-title"><span class="label">Elements</span><button class="btn small" type="button" data-action="add" aria-expanded="${addMenu}">+ Add Element</button></div>
+      <div class="add-menu"${addMenu ? '' : ' hidden'}>
+        <button class="chip-btn" type="button" data-action="add-kind" data-kind="spectrum"><i class="dot grad"></i>Blue–white–pink slider</button>
+        <button class="chip-btn" type="button" data-action="add-kind" data-kind="color"><i class="dot rgb"></i>RGB color</button>
+        <button class="chip-btn" type="button" data-action="add-kind" data-kind="texture"><i class="dot tex"></i>Texture image</button>
+      </div>
+      <div class="help" style="margin:-6px 2px 0">Every element has its own Intensity slider: 100% (default) is full brightness, 0% turns that element solid black. Each one can also carry its own text.</div>
+      ${rowsHtml(qi, q, styleRow)}
+    </div>`;
+}
+
+function renderPanel(keepScroll) {
+  const i = state.selected;
+  if (i === null) { panel.innerHTML = ''; return; }
+  const oldBody = $('.panel-body', panel);
+  const st = keepScroll && oldBody ? oldBody.scrollTop : 0;
+  const q = state.quads[i], m = META[i];
+  panel.innerHTML = `
+    <div class="panel-head">
+      <div><h2>Quadrant ${i + 1}: ${esc(m.name)}</h2><p class="desc">${esc(m.desc)}</p></div>
+      <button class="icon-btn" type="button" data-action="close" aria-label="Close panel">${ICON_CLOSE}</button>
+    </div>
+    <div class="panel-body">${i < 3 ? flagSections(i, q, m) : styleSections(i, q)}</div>`;
+  $('.panel-body', panel).scrollTop = st;
+  updateNotes();
+}
+
+function updateNotes() {
+  const qi = state.selected;
+  if (qi === null || qi > 2) return;
+  const q = state.quads[qi];
+  $$('.row', panel).forEach(row => {
+    const it = q.items.find(x => x.uid === row.dataset.uid), note = $('[data-note]', row);
+    if (!it || !note) return;
+    let msg = '';
+    if (it.kind === 'preset' && it.preset) {
+      const a = getPreset(META[qi].key, it.preset), dir = `./${META[qi].key}/`, nm = esc(it.preset);
+      if (a.status === 'missing') msg = `No file named “${nm}” in ${dir} — drop an image there (SVG, PNG, JPG, WebP, GIF …), then pick it again.`;
+      else if (a.status === 'invalid') msg = `“${nm}” in ${dir} could not be read as an image.`;
+      else if (a.status === 'error') msg = `Could not load “${nm}”: the connection to the server failed. <button class="btn small" type="button" data-action="retry">Try again</button>`;
+    }
+    note.hidden = !msg;
+    note.innerHTML = msg;
+  });
+}
+
+/* In-place refreshes (so sliders keep focus while dragging) */
+function refreshRow(row, qi, it) {
+  const v = rowVisual(qi, it);
+  const th = $('.thumb', row);
+  th.style.background = v.bg || '';
+  th.innerHTML = v.html;
+  $('.row-title', row).textContent = v.title;
+}
+function syncWeights(q) {
+  $$('.row', panel).forEach(row => {
+    const it = q.items.find(x => x.uid === row.dataset.uid);
+    if (!it) return;
+    const r = $('[data-field="weight"]', row), p = $('[data-pct]', row);
+    if (r) r.value = Math.round(it.weight);
+    if (p) p.textContent = Math.round(it.weight) + '%';
+  });
+}
+
+/* =============================================================================
+   Panel open / close
+   ============================================================================= */
+function selectQuad(i) {
+  const changed = state.selected !== i;
+  state.selected = i;
+  if (changed) addMenu = false;
+  $$('.hit').forEach(h => h.classList.toggle('is-selected', +h.dataset.q === i));
+  stage.classList.add('has-panel');
+  panelWrap.inert = false;
+  panelWrap.setAttribute('aria-hidden', 'false');
+  renderPanel(!changed);
+  if (mobileMQ.matches) window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function closePanel() {
+  state.selected = null;
+  addMenu = false;
+  $$('.hit').forEach(h => h.classList.remove('is-selected'));
+  stage.classList.remove('has-panel');
+  panelWrap.inert = true;
+  panelWrap.setAttribute('aria-hidden', 'true');
+  setTimeout(() => { if (state.selected === null) panel.innerHTML = ''; }, 480);
+}
+
+/* =============================================================================
+   Events
+   ============================================================================= */
+$$('.hit').forEach(h => h.addEventListener('click', () => selectQuad(+h.dataset.q)));
+
+$('#topInput').addEventListener('input', e => { state.top = e.target.value; renderBars(); });
+$('#bottomInput').addEventListener('input', e => { state.bottom = e.target.value; renderBars(); });
+[$('#topInput'), $('#bottomInput')].forEach(inp => inp.addEventListener('keydown', e => { if (e.key === 'Enter') inp.blur(); }));
+
+/* ---------- "Sharp, Gradient and Arrow" info popup ---------- */
+const helpModal = $('#blendHelp'), helpClose = $('.modal-x', helpModal);
+let helpTrigger = null;
+const helpOpen = () => helpModal.classList.contains('is-open');
+
+function lockScroll(on) {                          // freeze the page behind the popup without a scrollbar jump
+  const de = document.documentElement, sb = window.innerWidth - de.clientWidth;
+  de.style.overflow = on ? 'hidden' : '';
+  de.style.paddingRight = on && sb > 0 ? sb + 'px' : '';
+}
+function openBlendHelp(trigger) {
+  helpTrigger = trigger;
+  lockScroll(true);
+  helpModal.removeAttribute('inert');
+  helpModal.setAttribute('aria-hidden', 'false');
+  helpModal.classList.add('is-open');
+  helpClose.focus({ preventScroll: true });
+}
+function closeBlendHelp() {
+  if (!helpOpen()) return;
+  helpModal.classList.remove('is-open');
+  helpModal.setAttribute('aria-hidden', 'true');
+  helpModal.setAttribute('inert', '');
+  lockScroll(false);
+  if (helpTrigger && helpTrigger.isConnected) helpTrigger.focus({ preventScroll: true });
+  helpTrigger = null;
+}
+// the X button or a click on the dimmed backdrop closes it
+helpModal.addEventListener('click', e => { if (e.target === helpModal || e.target.closest('[data-close]')) closeBlendHelp(); });
+
+document.addEventListener('keydown', e => {
+  if (helpOpen()) {                                // while the popup is open it owns Esc and Tab (single focus target)
+    if (e.key === 'Escape') { e.preventDefault(); closeBlendHelp(); }
+    else if (e.key === 'Tab') { e.preventDefault(); helpClose.focus(); }
+    return;
+  }
+  if (e.key === 'Escape' && state.selected !== null && !e.target.matches('.bar-input')) closePanel();
+});
+
+const curItem = (q, el) => { const row = el.closest('.row'); return row ? q.items.find(x => x.uid === row.dataset.uid) : null; };
+
+panel.addEventListener('click', e => {
+  const b = e.target.closest('[data-action]');
+  if (!b || b.disabled) return;
+  const qi = state.selected;
+  if (qi === null) return;
+  const q = state.quads[qi], it = curItem(q, b);
+  const redo = () => { renderPanel(true); renderQuad(qi); };
+  switch (b.dataset.action) {
+    case 'close': closePanel(); break;
+    case 'private': q.priv = !q.priv; redo(); break;
+    case 'add':
+      if (qi === 3) { addMenu = !addMenu; renderPanel(true); }
+      else { addItem(qi, 'preset'); redo(); }
+      break;
+    case 'add-kind': addItem(qi, b.dataset.kind); addMenu = false; redo(); break;
+    case 'up': moveItem(q, it.uid, -1); redo(); break;
+    case 'down': moveItem(q, it.uid, 1); redo(); break;
+    case 'remove': removeItem(q, it.uid); redo(); break;
+    case 'blend': q.blends[+b.dataset.idx] = b.dataset.val; redo(); break;
+    case 'blend-help': openBlendHelp(b); break;
+    case 'dir': q.dir = b.dataset.val; redo(); break;
+    case 'texmode': it.mode = b.dataset.val; redo(); break;
+    case 'txweight': it.txt.weight = +b.dataset.val; redo(); break;
+    case 'retry':
+      if (it && it.preset) { forgetFailedPreset(META[qi].key, it.preset); getPreset(META[qi].key, it.preset); updateNotes(); renderQuad(qi); }
+      break;
+    case 'reload-presets': loadPresetList(); break;
+    case 'upload': pendingUid = it.uid; fileInput.value = ''; fileInput.click(); break;
+  }
+});
+
+panel.addEventListener('toggle', e => {            // remember which Text panels are open across re-renders
+  const d = e.target;
+  if (d.matches && d.matches('details.txt')) { if (d.open) openText.add(d.dataset.txt); else openText.delete(d.dataset.txt); }
+}, true);
+
+panel.addEventListener('input', e => {
+  const t = e.target, f = t.dataset.field, qi = state.selected;
+  if (!f || qi === null) return;
+  const q = state.quads[qi], it = curItem(q, t), row = t.closest('.row');
+  switch (f) {
+    case 'intensity':
+      it.intensity = +t.value;
+      $('[data-out="intensity"]', row).textContent = it.intensity + '%';
+      $('.thumb', row).style.setProperty('--dim', darkness(qi, it));
+      renderQuad(qi); break;
+    case 'txValue': it.txt.value = t.value; $('[data-prev]', row).textContent = txtPreview(it); renderQuad(qi); break;
+    case 'txColor': it.txt.color = t.value; renderQuad(qi); break;
+    case 'txSize': it.txt.size = +t.value; renderQuad(qi); break;
+    case 'txOutline': it.txt.outline = t.checked; renderQuad(qi); break;
+    case 'weight': setWeight(q, it.uid, +t.value); syncWeights(q); renderQuad(qi); break;
+    case 'value': it.value = +t.value; refreshRow(row, qi, it); renderQuad(qi); break;
+    case 'color': {
+      it.color = t.value;
+      $('[data-field="hex"]', row).value = t.value;
+      refreshRow(row, qi, it); renderQuad(qi); break;
+    }
+    case 'hex': {
+      const v = parseHex(t.value);
+      if (v) { it.color = v; $('[data-field="color"]', row).value = v; refreshRow(row, qi, it); renderQuad(qi); }
+      break;
+    }
+    case 'tile': it.tile = +t.value; $('[data-out="tile"]', row).textContent = it.tile; renderQuad(qi); break;
+  }
+});
+
+panel.addEventListener('change', e => {
+  const t = e.target, f = t.dataset.field, qi = state.selected;
+  if (!f || qi === null) return;
+  const q = state.quads[qi], it = curItem(q, t);
+  if (f === 'preset') {
+    if (t.value === '__custom') return;
+    it.kind = 'preset'; it.preset = t.value;
+    if (t.value) forgetFailedPreset(META[qi].key, t.value);
+    renderPanel(true); renderQuad(qi);
+  } else if (f === 'kind') {
+    ensureKind(it, t.value, q.items.indexOf(it));
+    renderPanel(true); renderQuad(qi);
+  } else if (f === 'hex') {                       // snap an invalid entry back to the current colour
+    const v = parseHex(t.value) || it.color;
+    t.value = v;
+  }
+});
+
+fileInput.addEventListener('change', async () => {
+  const file = fileInput.files && fileInput.files[0], qi = state.selected;
+  if (!file || qi === null || !pendingUid) return;
+  const q = state.quads[qi], it = q.items.find(x => x.uid === pendingUid);
+  pendingUid = null;
+  if (!it) return;
+  try {
+    const img = await readImageFile(file);
+    if (qi === 3) {
+      ensureKind(it, 'texture', q.items.indexOf(it));
+      Object.assign(it, { uri: img.uri, w: img.w, h: img.h, name: file.name });
+    } else {
+      it.kind = 'custom';
+      Object.assign(it, { uri: img.uri, w: img.w, h: img.h, name: file.name, preset: '' });
+    }
+    renderPanel(true); renderQuad(qi);
+  } catch (err) {
+    toast(err && err.message ? err.message : 'Could not use that image.');
+  }
+});
+
+/* =============================================================================
+   Export
+   ============================================================================= */
+let toastTimer;
+function toast(msg) {
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3800);
+}
+
+/* Pristine export source: a detached clone of the live SVG with every page-only trace removed. */
+function cleanSVGClone() {
+  const clone = svg.cloneNode(true);
+  clone.setAttribute('width', '400');
+  clone.setAttribute('height', '400');
+  clone.setAttribute('viewBox', '0 0 400 400');
+  // no empty text nodes (blank bars) and no editor/accessibility leftovers
+  $$('text', clone).forEach(t => { if (!t.textContent.trim()) t.remove(); });
+  [clone, ...$$('*', clone)].forEach(el => {
+    ['class', 'style', 'role', 'aria-label', 'tabindex', 'visibility', 'contenteditable'].forEach(a => el.removeAttribute(a));
+    Array.from(el.attributes).forEach(a => { if (a.name.startsWith('data-')) el.removeAttribute(a.name); });
+  });
+  // keep only the ids something actually points at (clipPaths, masks, gradients, patterns)
+  const used = new Set();
+  [clone, ...$$('*', clone)].forEach(el => Array.from(el.attributes).forEach(a => {
+    const re = /url\(#([^)\s]+)\)/g; let m;
+    while ((m = re.exec(a.value))) used.add(m[1]);
+    if ((a.name === 'href' || a.name === 'xlink:href') && a.value.startsWith('#')) used.add(a.value.slice(1));
+  }));
+  [clone, ...$$('[id]', clone)].forEach(el => { if (el.id && !used.has(el.id)) el.removeAttribute('id'); });
+  return clone;
+}
+
+const SVG_NS = 'http://www.w3.org/2000/svg', XLINK_NS = 'http://www.w3.org/1999/xlink';
+
+/* Serialise with both namespaces guaranteed (xlink is required by <image xlink:href>). */
+function serializeSVG(clone, withXmlDecl) {
+  let s = new XMLSerializer().serializeToString(clone);
+  if (!/^<svg[^>]*\sxmlns="/.test(s)) s = s.replace('<svg', `<svg xmlns="${SVG_NS}"`);
+  if (!/^<svg[^>]*\sxmlns:xlink="/.test(s)) s = s.replace('<svg', `<svg xmlns:xlink="${XLINK_NS}"`);
+  return (withXmlDecl ? '<?xml version="1.0" encoding="UTF-8"?>\n' : '') + s;
+}
+
+/* Programmatic download; returns false when the browser has no <a download> support. */
+function triggerDownload(href, filename) {
+  const a = document.createElement('a');
+  if (!('download' in a)) return false;
+  a.href = href;
+  a.download = filename;
+  a.rel = 'noopener';
+  a.style.display = 'none';
+  document.body.appendChild(a);                    // Firefox and iOS Safari need the link inside the DOM
+  a.click();
+  setTimeout(() => a.remove(), 0);
+  return true;
+}
+
+/* Canvas -> PNG URL. A blob URL is preferred because multi-MB data: URLs silently fail to download in Chrome;
+   toDataURL is only the fallback for browsers without toBlob. */
+const canvasToUrl = canvas => new Promise((resolve, reject) => {
+  const viaDataUrl = () => { try { resolve(canvas.toDataURL('image/png')); } catch (e) { reject(e); } };
+  if (!canvas.toBlob) return viaDataUrl();
+  try { canvas.toBlob(b => (b ? resolve(URL.createObjectURL(b)) : viaDataUrl()), 'image/png'); } catch (e) { reject(e); }
+});
+const revokeLater = u => { if (u.startsWith('blob:')) setTimeout(() => URL.revokeObjectURL(u), 10000); };
+
+/* SVG string (width/height already set to w x h) -> base64 data URI -> Image -> invisible w x h canvas -> PNG URL. */
+function svgToPngUrl(svgString, w, h = w) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = async () => {                     // nothing is drawn until the image has fully loaded (iOS Safari)
+      try {
+        if (img.decode) { try { await img.decode(); } catch (_) { /* decode is best-effort */ } }
+        const canvas = document.createElement('canvas');          // never attached = invisible
+        canvas.width = w; canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        const paint = () => {
+          ctx.clearRect(0, 0, w, h);
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, w, h);
+          ctx.drawImage(img, 0, 0, w, h);
+        };
+        paint();
+        await new Promise(r => setTimeout(r, 60));                // WebKit can paint nested <image> data URIs one pass late
+        paint();
+        resolve(await canvasToUrl(canvas));
+      } catch (err) { reject(err); }
+    };
+    img.onerror = () => reject(new Error('The SVG could not be loaded as an image.'));
+    img.src = 'data:image/svg+xml;base64,' + b64(svgString);
+  });
+}
+
+/* Last resort for browsers without <a download> (iOS < 13): show the PNG to press-and-hold. */
+function showSaveSheet(dataUrl) {
+  const o = document.createElement('div');
+  o.style.cssText = 'position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;background:rgba(0,0,0,.84);color:#fff;font:600 14px system-ui,sans-serif;text-align:center';
+  const im = document.createElement('img');
+  im.alt = 'Ident';
+  im.style.cssText = 'width:min(88vw,420px);height:auto;border-radius:6px';
+  im.src = dataUrl;
+  const t = document.createElement('div');
+  t.textContent = 'Press and hold the image to save it. Tap anywhere else to close.';
+  o.append(im, t);
+  o.addEventListener('click', e => { if (e.target !== im) o.remove(); });
+  document.body.appendChild(o);
+}
+
+/* Export is always a PNG of PNG_SIZE x PNG_SIZE px (the card on the page itself stays a 400 x 400 vector). */
+const PNG_SIZE = 2000;
+
+let exporting = false;
+async function downloadExport() {
+  if (exporting) return;
+  exporting = true;
+  try {
+    await Promise.all(Array.from(inflight));       // let any preset that is still loading finish and embed
+    renderAll();                                   // re-fits the bar text right before serialising
+    const clone = cleanSVGClone();                 // pristine 400 x 400 vector
+
+    try {
+      const hiRes = clone.cloneNode(true);         // same 0 0 400 400 viewBox, but a 2000 x 2000 box:
+      hiRes.setAttribute('width', PNG_SIZE);       // the browser redraws every vector natively at 2000 px
+      hiRes.setAttribute('height', PNG_SIZE);      // instead of up-scaling a 400 px bitmap
+      const pngUrl = await svgToPngUrl(serializeSVG(hiRes, false), PNG_SIZE);
+      if (triggerDownload(pngUrl, 'my_ident.png')) revokeLater(pngUrl); else showSaveSheet(pngUrl);
+    } catch (err) {
+      toast('PNG export failed in this browser.');
+    }
+  } finally {
+    exporting = false;
+  }
+}
+$('#downloadBtn').addEventListener('click', downloadExport);
+
+/* ---------- Tutorial image: how to read an Ident (drawn as SVG, saved as PNG) ---------- */
+function buildTutorialSVG(k = 2) {
+  const W = 800, M = 40, FONT = "-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
+  let y = 0, out = '', defs = '', uid = 0;
+  const txt = (x, ty, str, size, o = {}) =>
+    `<text x="${fmt(x)}" y="${fmt(ty)}" font-size="${fmt(size)}" font-weight="${o.w || 400}" fill="${o.c || '#1a1a1a'}"${o.a ? ` text-anchor="${o.a}"` : ''}>${esc(str)}</text>`;
+  const para = (x, top, w, str, size, o = {}) => {        // greedy word wrap; returns the y below the paragraph
+    const max = Math.max(8, Math.floor(w / (size * 0.6))), lh = Math.round(size * 1.4), lines = [];
+    let cur = '';
+    str.split(' ').forEach(wd => {
+      if (cur && (cur + ' ' + wd).length > max) { lines.push(cur); cur = wd; } else cur = cur ? cur + ' ' + wd : wd;
+    });
+    if (cur) lines.push(cur);
+    lines.forEach((ln, i) => { out += txt(x, top + size + i * lh, ln, size, o); });
+    return top + lines.length * lh;
+  };
+  const badge = (cx, cy, str, r, fill) =>
+    `<circle cx="${fmt(cx)}" cy="${fmt(cy)}" r="${r}" fill="${fill}"/>` + txt(cx, cy + r * 0.4, str, r * 1.15, { w: 700, c: '#fff', a: 'middle' });
+  const head = (n, title) => { out += badge(M + 14, y + 14, n, 14, '#111') + txt(M + 38, y + 22, title, 22, { w: 800 }); y += 46; };
+
+  /* horizontal strip of elements; joints[i] (sharp | gradient | arrow) links element i to element i + 1 */
+  const strip = (x, ty, w, h, els, joints) => {
+    const n = els.length, ew = w / n, d = h * 0.3, g = Math.min(ew * 0.22, 26), mid = ty + h / 2;
+    els.forEach(([, col], i) => {
+      const xl = x + ew * i, xr = xl + ew, jl = joints[i - 1], jr = joints[i], al = jl === 'arrow', ar = jr === 'arrow';
+      const l = jl === 'gradient' ? xl + g : xl, r = jr === 'gradient' ? xr - g : xr;
+      const pts = [[al ? xl - d : l, ty], [ar ? xr - d : r, ty]];
+      if (ar) pts.push([xr + d, mid]);                      // tip of an arrow joint
+      pts.push([ar ? xr - d : r, ty + h], [al ? xl - d : l, ty + h]);
+      if (al) pts.push([xl + d, mid]);                      // matching notch
+      out += `<polygon points="${pts.map(q => fmt(q[0]) + ',' + fmt(q[1])).join(' ')}" fill="${col}"/>`;
+    });
+    joints.forEach((j, i) => {
+      const xj = x + ew * (i + 1);
+      if (j === 'gradient') {
+        const id = 'tg' + (uid++);
+        defs += `<linearGradient id="${id}" gradientUnits="userSpaceOnUse" x1="${fmt(xj - g)}" y1="0" x2="${fmt(xj + g)}" y2="0"><stop offset="0" stop-color="${els[i][1]}"/><stop offset="1" stop-color="${els[i + 1][1]}"/></linearGradient>`;
+        out += `<rect x="${fmt(xj - g)}" y="${ty}" width="${fmt(2 * g)}" height="${h}" fill="url(#${id})"/>`;
+      } else if (j === 'arrow') {
+        out += `<polyline points="${fmt(xj - d)},${ty} ${fmt(xj + d)},${fmt(mid)} ${fmt(xj - d)},${ty + h}" fill="none" stroke="#fff" stroke-width="2.5"/>`;
+      }
+    });
+    els.forEach(([label], i) => { out += txt(x + ew * i + ew / 2, mid + 5, label, 15, { w: 700, c: '#fff', a: 'middle' }); });
+  };
+
+  /* ---- title ---- */
+  y = 62;
+  out += txt(M, y, 'How to read an Ident', 34, { w: 800 });
+  y = para(M, y + 14, W - 2 * M, 'An Ident is a 2×2 card with two bars. Every part has its own meaning, and the connections between flags matter most.', 15, { c: '#555' }) + 28;
+
+  /* ---- 1 · the card ---- */
+  head(1, 'What each part of the card is for');
+  const PARTS = [
+    ['A', '#6b7280', 'Top bar — Additional context', 'Optional. Anything extra you want people to know about your Ident.'],
+    ['1', '#db2777', 'Top-left — Sexual Orientation', 'Who you are sexually attracted to. A flag dimmed toward black marks the asexual spectrum.'],
+    ['2', '#ea580c', 'Top-right — Romantic Orientation', 'Who you are romantically drawn to; it can differ from your sexual orientation. Dimmed toward black marks the aromantic spectrum.'],
+    ['3', '#7c3aed', 'Bottom-left — Gender Identity', 'How you experience and describe your own gender. Dimmed toward black marks the agender spectrum.'],
+    ['4', '#059669', 'Bottom-right — Aesthetic & Style', 'How you present and express yourself visually: colors, textures, masculine–feminine style and your own text.'],
+    ['B', '#2563eb', 'Bottom bar — Pronouns', 'Strictly your pronouns, e.g. he/him, she/her, they/them.']
+  ];
+  const cs = 300, u = cs / 400, cx0 = M, cy0 = y;
+  const cell = (qx, qy, qw, qh, f) => {                     // one card cell; black grid lines are the gaps between cells
+    const x0 = qx + (qx === 0 ? 4 : 2), x1 = qx + qw - (qx + qw === 400 ? 4 : 2);
+    const y0 = qy + (qy === 0 ? 4 : 2), y1 = qy + qh - (qy + qh === 400 ? 4 : 2);
+    out += `<rect x="${fmt(cx0 + x0 * u)}" y="${fmt(cy0 + y0 * u)}" width="${fmt((x1 - x0) * u)}" height="${fmt((y1 - y0) * u)}" fill="${f}"/>`;
+  };
+  out += `<rect x="${cx0}" y="${cy0}" width="${cs}" height="${cs}" fill="#000"/>`;
+  cell(0, 0, 400, 25, '#e5e7eb');
+  cell(0, 25, 200, 175, '#fbd5e5'); cell(200, 25, 200, 175, '#fddcc8');
+  cell(0, 200, 200, 175, '#e2d6fb'); cell(200, 200, 200, 175, '#c9efe0');
+  cell(0, 375, 400, 25, '#dbe6fd');
+  out += txt(cx0 + 200 * u, cy0 + 13.5 * u + 3.4, 'Additional context (optional)', 9.5, { c: '#444', a: 'middle' });
+  out += txt(cx0 + 200 * u, cy0 + 386.5 * u + 3.4, 'Pronouns', 9.5, { c: '#444', a: 'middle' });
+  [[1, 100, 112.5], [2, 300, 112.5], [3, 100, 287.5], [4, 300, 287.5]].forEach(([n, qx, qy]) => {
+    out += badge(cx0 + qx * u, cy0 + qy * u, n, 17, PARTS[n][1]);
+  });
+  const lx = M + cs + 30, lw = W - M - lx;
+  let ly = cy0;
+  PARTS.forEach(([n, col, title, desc]) => {
+    out += badge(lx + 11, ly + 11, n, 11, col) + txt(lx + 32, ly + 16, title, 15, { w: 700 });
+    ly = para(lx + 32, ly + 22, lw - 32, desc, 13, { c: '#555' }) + 10;
+  });
+  y = Math.max(cy0 + cs, ly) + 30;
+
+  /* ---- 2 · the three connections (the important part) ---- */
+  head(2, 'The three connections');
+  y = para(M, y - 10, W - 2 * M, 'Most important part: the line between two neighbouring flags tells you how they relate.', 14, { c: '#555' }) + 14;
+  const mark = out.length, top2 = y, tx = M + 20 + 250 + 26;
+  y += 20;
+  [
+    ['Sharp (straight edge)', 'Identities coexist at the same time. This is the default connection.', 'Identity A', 'Identity B', 'sharp'],
+    ['Gradient (smooth blend)', 'A fluid identity that shifts, rotates or fluctuates across different periods of time (e.g. Abrosexual, Genderfluid, Bi-flux).', 'Period 1', 'Period 2', 'gradient'],
+    ['Arrow (chevron)', 'Two or more orientations subordinate to one. The umbrella comes first, the specific orientations it covers follow, and the arrow points from the umbrella into them.', 'Umbrella', 'Specific', 'arrow']
+  ].forEach(([name, desc, a, b, kind]) => {
+    strip(M + 20, y, 250, 56, [[a, '#2563eb'], [b, '#db2777']], [kind]);
+    out += txt(tx, y + 18, name, 17, { w: 700 });
+    y = Math.max(y + 56, para(tx, y + 26, W - M - 20 - tx, desc, 13.5, { c: '#444' })) + 22;
+  });
+  out = out.slice(0, mark) + `<rect x="${M}" y="${top2}" width="${W - 2 * M}" height="${y - top2 - 4}" rx="16" fill="#f3f5fa" stroke="#dde2ee"/>` + out.slice(mark);
+  y += 26;
+
+  /* ---- 3 · reading order ---- */
+  head(3, 'Reading order: Gradient → Sharp → Arrow');
+  const STEPS = [
+    ['1', '#7c3aed', 'Gradient first', 'It is the senior connection. It splits the picture into moments in time.'],
+    ['2', '#2563eb', 'Then Sharp (straight) edges', 'Inside each moment they separate what coexists.'],
+    ['3', '#ea580c', 'Arrows last', 'They group an umbrella with the specific orientations it covers.']
+  ];
+  STEPS.forEach(([n, col, title, desc]) => {
+    out += badge(M + 14, y + 14, n, 14, col) + txt(M + 38, y + 19, title, 17, { w: 700 });
+    y = para(M + 38, y + 24, W - 2 * M - 38, desc, 13.5, { c: '#444' }) + 12;
+  });
+  y += 10;
+  out += txt(M, y + 18, 'Example:  Bi → Hetero → Cetero | Demi / Homo', 18, { w: 800 });
+  out += txt(M, y + 40, '→ arrow        | Sharp edge        / Gradient', 12.5, { c: '#666' });
+  y += 62;
+  const sx = 76, sw = 684, ew = sw / 5, sh = 64, ty = y;
+  strip(sx, ty, sw, sh, [['Bi', '#db2777'], ['Hetero', '#7c3aed'], ['Cetero', '#ea580c'], ['Demi', '#0d9488'], ['Homo', '#2563eb']], ['arrow', 'arrow', 'sharp', 'gradient']);
+  const bk = (x1, x2, by, label, col) => {
+    out += `<path d="M${fmt(x1)},${by - 6} V${by} H${fmt(x2)} V${by - 6}" fill="none" stroke="${col}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`
+         + txt((x1 + x2) / 2, by + 18, label, 13, { w: 700, c: col, a: 'middle' });
+  };
+  const r1 = ty + sh + 24, r2 = r1 + 46, r3 = r2 + 46, c1 = STEPS[0][1], c2 = STEPS[1][1], c3 = STEPS[2][1];
+  out += badge(M + 14, r1 - 3, 1, 11, c1) + badge(M + 14, r2 - 3, 2, 11, c2) + badge(M + 14, r3 - 3, 3, 11, c3);
+  bk(sx + 4, sx + 4 * ew - 8, r1, 'Moment 1', c1);  bk(sx + 4 * ew + 8, sx + 5 * ew - 4, r1, 'Moment 2', c1);
+  bk(sx + 4, sx + 3 * ew - 8, r2, 'Bi group', c2);  bk(sx + 3 * ew + 8, sx + 4 * ew - 8, r2, 'coexists', c2);
+  bk(sx + 4, sx + 3 * ew - 8, r3, 'Bi (umbrella) covers Hetero + Cetero', c3);
+  y = para(M, r3 + 38, W - 2 * M, 'Read as: Bi (covering Hetero and Cetero) together with Demi in one period of life, and Homo in another.', 14, { c: '#444' });
+
+  const H = Math.ceil(y + 36);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W * k}" height="${H * k}" viewBox="0 0 ${W} ${H}" font-family="${FONT}"><defs>${defs}</defs><rect width="${W}" height="${H}" fill="#fff"/>${out}</svg>`;
+  return { svg, w: W * k, h: H * k };
+}
+
+let tutoring = false;
+async function downloadTutorial() {
+  if (tutoring) return;
+  tutoring = true;
+  try {
+    const t = buildTutorialSVG(2);                 // 2x -> a crisp 1600 px wide PNG
+    const pngUrl = await svgToPngUrl(t.svg, t.w, t.h);
+    if (triggerDownload(pngUrl, 'ident_tutorial.png')) revokeLater(pngUrl); else showSaveSheet(pngUrl);
+  } catch (err) {
+    toast('Tutorial export failed in this browser.');
+  } finally {
+    tutoring = false;
+  }
+}
+$('#tutorialBtn').addEventListener('click', downloadTutorial);
+
+/* =============================================================================
+   Go
+   ============================================================================= */
+renderAll();
+loadPresetList();
+})();
+</script>
+</body>
+</html>
